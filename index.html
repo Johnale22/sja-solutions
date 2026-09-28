@@ -1,0 +1,2553 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SJA SOLUTIONS | Soluciones que conectan - Soporte Técnico a Domicilio en Quito</title>
+    <meta name="description" content="Soluciones tecnológicas a domicilio en Quito para tu hogar y negocio. Reparación y optimización de computadoras, impresoras, clonación SSD e instalación de cámaras de seguridad.">
+    
+    <!-- Google Fonts: Montserrat (Tipografía Oficial del Manual de Marca) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configuración de Tailwind con la Paleta Oficial de SJA SOLUTIONS -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        sja: {
+                            navy: '#0A2D63',      /* Azul Profundo Principal: Confianza y Profesionalismo */
+                            dark: '#051838',      /* Variación oscura para fondos profundos */
+                            cyan: '#00C2FF',      /* Cian Tecnológico: Tecnología e Innovación */
+                            purple: '#A855F7',    /* Púrpura Moderno: Diferenciación y Modernidad */
+                            light: '#F2F7FF',     /* Fondo Claro: Claridad y Equilibrio */
+                        }
+                    },
+                    boxShadow: {
+                        'cyan-glow': '0 10px 30px -5px rgba(0, 194, 255, 0.35)',
+                        'purple-glow': '0 10px 30px -5px rgba(168, 85, 247, 0.35)',
+                        'card-premium': '0 20px 45px -15px rgba(10, 45, 99, 0.12)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #F2F7FF;
+            color: #0A2D63;
+            overflow-x: hidden;
+        }
+
+        /* Fondo Hero de alto contraste con respaldo sólido #0A2D63 */
+        .sja-hero-bg {
+            background-color: #0A2D63 !important;
+            background-image: radial-gradient(circle at 85% 20%, rgba(0, 194, 255, 0.22) 0%, transparent 45%),
+                              radial-gradient(circle at 15% 80%, rgba(168, 85, 247, 0.20) 0%, transparent 45%),
+                              linear-gradient(135deg, #051633 0%, #0A2D63 55%, #0F3B82 100%) !important;
+            color: #FFFFFF !important;
+        }
+
+        /* Tarjetas internas oscuras de alto contraste para lectura impecable */
+        .hero-dark-card {
+            background-color: rgba(5, 22, 51, 0.88);
+            border: 1px solid rgba(0, 194, 255, 0.35);
+            color: #FFFFFF;
+        }
+
+        /* Cintas diagonales de marca (sin sobreescribir position: absolute en tarjetas 3D) */
+        .brand-ribbon-corner {
+            overflow: hidden;
+        }
+        .brand-ribbon-corner::after {
+            content: '';
+            position: absolute;
+            bottom: -25px;
+            right: -25px;
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #00C2FF 0%, #00C2FF 48%, #A855F7 52%, #A855F7 100%);
+            transform: rotate(45deg);
+            opacity: 0.9;
+            pointer-events: none;
+        }
+
+        /* EFECTO DE PARTÍCULAS DIGITALES EN MOVIMIENTO PARA EL LOGO SJA */
+        @keyframes sjaParticleDrift1 {
+            0% { transform: translate(0px, 0px) scale(0.85) rotate(0deg); opacity: 0.35; }
+            40% { transform: translate(4px, -6px) scale(1.12) rotate(8deg); opacity: 1; filter: drop-shadow(0 0 6px rgba(168, 85, 247, 0.85)); }
+            80% { transform: translate(9px, -12px) scale(0.75) rotate(15deg); opacity: 0.2; }
+            100% { transform: translate(0px, 0px) scale(0.85) rotate(0deg); opacity: 0.35; }
+        }
+        @keyframes sjaParticleDrift2 {
+            0% { transform: translate(0px, 0px) scale(1) rotate(0deg); opacity: 0.9; }
+            50% { transform: translate(6px, -8px) scale(1.18) rotate(-10deg); opacity: 1; filter: drop-shadow(0 0 7px rgba(0, 194, 255, 0.9)); }
+            90% { transform: translate(11px, -14px) scale(0.6) rotate(-18deg); opacity: 0.15; }
+            100% { transform: translate(0px, 0px) scale(1) rotate(0deg); opacity: 0.9; }
+        }
+        @keyframes sjaParticleDrift3 {
+            0% { transform: translate(0px, 0px) scale(0.75); opacity: 0.25; }
+            35% { transform: translate(-3px, -5px) scale(1.08); opacity: 0.95; filter: drop-shadow(0 0 5px rgba(168, 85, 247, 0.8)); }
+            75% { transform: translate(5px, -11px) scale(1.2); opacity: 1; filter: drop-shadow(0 0 8px rgba(0, 194, 255, 0.9)); }
+            100% { transform: translate(0px, 0px) scale(0.75); opacity: 0.25; }
+        }
+        @keyframes sjaParticleSpark {
+            0%, 100% { transform: translate(0px, 0px) scale(0.4); opacity: 0; }
+            50% { transform: translate(8px, -10px) scale(1.1); opacity: 0.95; filter: drop-shadow(0 0 6px #00C2FF); }
+        }
+
+        .sja-p1 { animation: sjaParticleDrift1 3.2s infinite ease-in-out; transform-box: fill-box; transform-origin: center; }
+        .sja-p2 { animation: sjaParticleDrift2 2.7s infinite ease-in-out 0.4s; transform-box: fill-box; transform-origin: center; }
+        .sja-p3 { animation: sjaParticleDrift3 3.6s infinite ease-in-out 0.8s; transform-box: fill-box; transform-origin: center; }
+        .sja-p4 { animation: sjaParticleDrift2 3.0s infinite ease-in-out 1.2s; transform-box: fill-box; transform-origin: center; }
+        .sja-p5 { animation: sjaParticleDrift1 2.5s infinite ease-in-out 1.6s; transform-box: fill-box; transform-origin: center; }
+        .sja-spark-1 { animation: sjaParticleSpark 2.4s infinite ease-in-out 0.2s; transform-box: fill-box; transform-origin: center; }
+        .sja-spark-2 { animation: sjaParticleSpark 2.9s infinite ease-in-out 1.1s; transform-box: fill-box; transform-origin: center; }
+        .sja-spark-3 { animation: sjaParticleSpark 3.3s infinite ease-in-out 1.8s; transform-box: fill-box; transform-origin: center; }
+
+        /* Animación de ondas y pulsos */
+        @keyframes pulseWave {
+            0% { opacity: 0.25; transform: scale(0.92); }
+            50% { opacity: 1; transform: scale(1.04); }
+            100% { opacity: 0.25; transform: scale(0.92); }
+        }
+        .animate-wave-1 { animation: pulseWave 2.4s infinite ease-in-out; }
+
+        /* Animación de aguja del velocímetro de laptop */
+        @keyframes gaugeSweep {
+            0%, 100% { transform: rotate(35deg); }
+            50% { transform: rotate(62deg); }
+        }
+        .gauge-needle {
+            transform-origin: 50px 55px;
+            animation: gaugeSweep 3.5s ease-in-out infinite;
+        }
+
+        /* Tarjeta de presentación 3D interactiva */
+        .perspective-1000 {
+            perspective: 1000px;
+        }
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+            transform-style: preserve-3d;
+            -webkit-transform-style: preserve-3d;
+        }
+        .flip-card-flipped {
+            transform: rotateY(180deg);
+        }
+        .card-face-front,
+        .card-face-back {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+        .card-face-front {
+            transform: rotateY(0deg);
+            z-index: 2;
+        }
+        .card-face-back {
+            transform: rotateY(180deg);
+        }
+
+        /* Scrollbar personalizada */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #051838;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #00C2FF, #A855F7);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-sja-cyan selection:text-sja-navy">
+
+    <!-- BARRA SUPERIOR DE COBERTURA Y CONTACTO RÁPIDO -->
+    <div class="bg-[#051838] text-white text-xs py-2.5 px-4 border-b border-white/10" style="background-color: #051838; color: #FFFFFF;">
+        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+            <div class="flex items-center gap-3">
+                <span class="inline-flex items-center gap-1.5 bg-[#A855F7]/30 border border-[#A855F7] text-white px-2.5 py-0.5 rounded-full font-semibold tracking-wide">
+                    <span class="w-2 h-2 rounded-full bg-[#00C2FF] animate-ping"></span>
+                    SERVICIO A DOMICILIO EN QUITO
+                </span>
+                <span class="hidden sm:inline text-slate-200 font-medium">Soluciones que conectan • Hogares, Negocios y Oficinas</span>
+            </div>
+            <div class="flex flex-wrap items-center gap-3 sm:gap-4 ml-auto">
+                <a href="mailto:sja.solutionss@gmail.com" class="text-white hover:text-[#00C2FF] transition-colors flex items-center gap-1 font-medium">
+                    <svg class="w-3.5 h-3.5 text-[#00C2FF]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    <span class="hidden md:inline">sja.solutionss@gmail.com</span>
+                </a>
+                <span class="text-white/20 hidden md:inline">|</span>
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="text-white hover:text-[#00C2FF] transition-colors flex items-center gap-1 font-medium">
+                    <svg class="w-3.5 h-3.5 text-[#00C2FF]" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
+                    <span>SJA Solutions</span>
+                </a>
+                <span class="text-white/20">|</span>
+                <a href="https://wa.me/593969016202?text=Hola%20SJA%20SOLUTIONS%2C%20necesito%20asistencia%20t%C3%A9cnica%20a%20domicilio%20en%20Quito." target="_blank" rel="noopener noreferrer" class="text-[#00C2FF] font-bold hover:underline flex items-center gap-1">
+                    <span>WhatsApp: 0969016202</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVBAR STICKY PRINCIPAL -->
+    <header id="navbar" class="sticky top-0 z-50 bg-white border-b border-sja-navy/10 shadow-sm transition-all duration-300" style="background-color: #FFFFFF; color: #0A2D63;">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- LOGO OFICIAL SJA SOLUTIONS CON PARTÍCULAS DIGITALES EN MOVIMIENTO -->
+            <a href="#inicio" class="flex items-center gap-3 group focus:outline-none" aria-label="SJA Solutions Inicio">
+                <svg class="h-14 w-auto transition-transform duration-300 group-hover:scale-105 overflow-visible" viewBox="0 0 320 115" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22 72 C12 42, 115 4, 182 8 C202 10, 192 34, 162 54" stroke="#0A2D63" stroke-width="5" stroke-linecap="round" fill="none"/>
+                    <path d="M40 66 C24 72, 19 84, 30 85" stroke="#0A2D63" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+                    <circle cx="33" cy="73" r="3" fill="#00C2FF" class="sja-p2"/>
+                    <path d="M108 25 H58 C42 25, 36 34, 36 42 C36 51, 43 56, 58 56 H88 C94 56, 97 59, 97 62 C97 66, 93 68, 86 68 H38 L33 79 H88 C106 79, 114 71, 114 61 C114 50, 106 45, 89 45 H60 C54 45, 52 43, 52 40 C52 37, 55 35, 61 35 H104 L108 25 Z" fill="#0A2D63"/>
+                    <path d="M148 25 H167 L154 60 C149 74, 138 80, 121 80 H112 L117 67 H123 C131 67, 135 64, 138 56 L148 25 Z" fill="#00C2FF"/>
+                    <path d="M206 23 L164 79 H183 L206 47 L229 79 H248 L206 23 Z" fill="#0A2D63"/>
+                    <polygon points="206,56 194,75 218,75" fill="#0A2D63"/>
+                    <rect class="sja-p1" x="234" y="16" width="9" height="9" rx="1.5" fill="#A855F7"/>
+                    <rect class="sja-p2" x="247" y="6" width="8.5" height="8.5" rx="1.5" fill="#A855F7"/>
+                    <rect class="sja-p3" x="260" y="17" width="10" height="10" rx="1.5" fill="#A855F7"/>
+                    <rect class="sja-p4" x="245" y="26" width="9" height="9" rx="1.5" fill="#00C2FF"/>
+                    <rect class="sja-p5" x="257" y="35" width="8" height="8" rx="1.5" fill="#00C2FF"/>
+                    <rect class="sja-spark-1" x="238" y="4" width="5" height="5" rx="1" fill="#00C2FF"/>
+                    <rect class="sja-spark-2" x="272" y="8" width="6" height="6" rx="1" fill="#A855F7"/>
+                    <rect class="sja-spark-3" x="270" y="28" width="5.5" height="5.5" rx="1" fill="#00C2FF"/>
+                    <text x="142" y="98" text-anchor="middle" fill="#0A2D63" font-family="Montserrat, sans-serif" font-weight="800" font-size="18" letter-spacing="6.5">SOLUTIONS</text>
+                    <text x="142" y="112" text-anchor="middle" fill="#0A2D63" font-family="Montserrat, sans-serif" font-weight="600" font-size="8.2" letter-spacing="2.6">SOLUCIONES QUE CONECTAN</text>
+                </svg>
+            </a>
+
+            <!-- ENLACES DE NAVEGACIÓN DESKTOP -->
+            <nav class="hidden lg:flex items-center gap-6 text-sm font-bold text-[#0A2D63]">
+                <a href="#inicio" class="text-[#0A2D63] hover:text-[#00C2FF] transition-colors">Inicio</a>
+                <a href="#categorias" class="text-[#0A2D63] hover:text-[#00C2FF] transition-colors">Categorías</a>
+                <a href="#paquetes" class="text-[#0A2D63] hover:text-[#00C2FF] transition-colors flex items-center gap-1.5">
+                    <span>Paquetes</span>
+                    <span class="bg-[#00C2FF]/20 text-[#0A2D63] text-[10px] font-black px-2 py-0.5 rounded-full">Quito</span>
+                </a>
+                <a href="#servicios" class="text-[#0A2D63] hover:text-[#00C2FF] transition-colors">Servicios</a>
+                <a href="#diagnostico" class="text-[#A855F7] hover:text-[#00C2FF] transition-colors flex items-center gap-1">
+                    <span class="w-2 h-2 rounded-full bg-[#A855F7]"></span>
+                    Diagnóstico Rápido
+                </a>
+                <a href="#alcance" class="text-[#0A2D63] hover:text-[#00C2FF] transition-colors">Soluciones</a>
+                <a href="#contacto" class="text-[#0A2D63] hover:text-[#00C2FF] transition-colors">Contacto</a>
+            </nav>
+
+            <!-- BOTÓN CTA PRINCIPAL (WHATSAPP DIRECTO) -->
+            <div class="hidden sm:flex items-center gap-3">
+                <a href="https://wa.me/593969016202?text=Hola%20SJA%20SOLUTIONS%2C%20deseo%20agendar%20una%20visita%20t%C3%A9cnica%20a%20domicilio%20en%20Quito." 
+                   target="_blank" rel="noopener noreferrer"
+                   style="background-color: #0A2D63; color: #FFFFFF;"
+                   class="bg-[#0A2D63] hover:bg-[#00C2FF] text-white hover:text-[#051838] font-extrabold text-sm px-5 py-3 rounded-full shadow-lg hover:shadow-cyan-glow transition-all duration-300 flex items-center gap-2.5 group">
+                    <svg class="w-5 h-5 text-[#00C2FF] group-hover:text-[#051838] transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.126.556 4.124 1.529 5.859l-1.529 5.582 5.714-1.499c1.693.922 3.633 1.458 5.698 1.458 6.627 0 12-5.373 12-12s-5.385-11.4-11.412-11.4z"/>
+                    </svg>
+                    <span>0969016202</span>
+                </a>
+            </div>
+
+            <!-- BOTÓN MENÚ MÓVIL -->
+            <button id="mobile-menu-btn" class="lg:hidden p-2.5 rounded-xl bg-[#F2F7FF] text-[#0A2D63] hover:bg-[#00C2FF] hover:text-white transition-colors" aria-label="Abrir Menú">
+                <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+                <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- MENÚ DESPLEGABLE MÓVIL -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-100 px-6 py-5 space-y-3 shadow-xl">
+            <a href="#inicio" class="mobile-nav-link block py-2 font-bold text-[#0A2D63] hover:text-[#00C2FF]">Inicio</a>
+            <a href="#categorias" class="mobile-nav-link block py-2 font-bold text-[#0A2D63] hover:text-[#00C2FF]">Categorías de Servicio</a>
+            <a href="#paquetes" class="mobile-nav-link block py-2 font-bold text-[#0A2D63] hover:text-[#00C2FF]">Paquetes y Precios (Quito)</a>
+            <a href="#servicios" class="mobile-nav-link block py-2 font-bold text-[#0A2D63] hover:text-[#00C2FF]">Soluciones Especializadas</a>
+            <a href="#diagnostico" class="mobile-nav-link block py-2 font-bold text-[#A855F7] hover:text-[#00C2FF]">Asistente de Diagnóstico Rápido</a>
+            <a href="#alcance" class="mobile-nav-link block py-2 font-bold text-[#0A2D63] hover:text-[#00C2FF]">Hogares y Negocios</a>
+            <a href="#contacto" class="mobile-nav-link block py-2 font-bold text-[#0A2D63] hover:text-[#00C2FF]">Tarjeta Digital y Contacto</a>
+            <div class="pt-3 border-t border-slate-100">
+                <a href="https://wa.me/593969016202?text=Hola%20SJA%20SOLUTIONS%2C%20necesito%20soporte%20t%C3%A9cnico%20a%20domicilio%20en%20Quito." 
+                   target="_blank" rel="noopener noreferrer"
+                   style="background-color: #00C2FF; color: #051838;"
+                   class="w-full justify-center bg-[#00C2FF] text-[#051838] font-extrabold py-3 px-4 rounded-xl flex items-center gap-2 shadow-md">
+                    <span>Solicitar Técnico: 0969016202</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION PRINCIPAL -->
+    <section id="inicio" class="sja-hero-bg relative overflow-hidden text-white py-16 lg:py-24" style="background: linear-gradient(135deg, #051633 0%, #0A2D63 55%, #0F3B82 100%); background-color: #0A2D63; color: #FFFFFF;">
+        <div class="pointer-events-none absolute -top-24 -right-24 w-96 h-96 rounded-full bg-[#00C2FF]/15 blur-3xl"></div>
+        <div class="pointer-events-none absolute bottom-0 left-1/3 w-80 h-80 rounded-full bg-[#A855F7]/20 blur-3xl"></div>
+        
+        <div class="hidden lg:block pointer-events-none absolute bottom-0 right-0 w-72 h-72 overflow-hidden opacity-80">
+            <div class="absolute -bottom-12 -right-12 w-64 h-12 bg-[#00C2FF] transform -rotate-45"></div>
+            <div class="absolute -bottom-20 -right-4 w-64 h-10 bg-[#A855F7] transform -rotate-45"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- COLUMNA IZQUIERDA -->
+                <div class="lg:col-span-7 space-y-7">
+                    <div class="inline-flex items-center gap-2.5 bg-gradient-to-r from-[#A855F7] to-[#00C2FF] p-0.5 rounded-full shadow-purple-glow">
+                        <div class="px-4 py-1.5 rounded-full flex items-center gap-2" style="background-color: #051633; color: #FFFFFF;">
+                            <span class="w-2.5 h-2.5 rounded-full bg-[#00C2FF]"></span>
+                            <span class="text-xs sm:text-sm font-extrabold tracking-wider uppercase text-white" style="color: #FFFFFF;">
+                                SOLUCIONES QUE CONECTAN • QUITO
+                            </span>
+                        </div>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.08] text-white" style="color: #FFFFFF;">
+                        SOLUCIONES <br>
+                        TECNOLÓGICAS <br>
+                        <span class="text-[#00C2FF] drop-shadow-[0_4px_20px_rgba(0,194,255,0.45)]" style="color: #00C2FF;">A DOMICILIO</span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg max-w-xl font-medium leading-relaxed" style="color: #E2E8F0;">
+                        No desconectes tus equipos ni pierdas tiempo en el tráfico. Nuestros especialistas certificados van directamente a tu ubicación en Quito para resolver cualquier falla en el acto.
+                    </p>
+
+                    <!-- LOS 3 PILARES OFICIALES -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 pt-1">
+                        <div class="hero-dark-card rounded-2xl p-4 flex items-center gap-3.5 hover:border-[#00C2FF] transition-all" style="background-color: #051633; border: 1px solid rgba(0, 194, 255, 0.4);">
+                            <div class="w-11 h-11 rounded-xl bg-[#00C2FF]/20 border border-[#00C2FF]/50 flex items-center justify-center text-[#00C2FF] shrink-0">
+                                <svg class="w-6 h-6" fill="none" stroke="#00C2FF" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-extrabold text-white text-sm sm:text-base leading-tight" style="color: #FFFFFF;">Tu hogar</p>
+                                <p class="text-xs font-medium" style="color: #93C5FD;">Atención segura</p>
+                            </div>
+                        </div>
+
+                        <div class="hero-dark-card rounded-2xl p-4 flex items-center gap-3.5 hover:border-[#00C2FF] transition-all" style="background-color: #051633; border: 1px solid rgba(0, 194, 255, 0.4);">
+                            <div class="w-11 h-11 rounded-xl bg-[#00C2FF]/20 border border-[#00C2FF]/50 flex items-center justify-center text-[#00C2FF] shrink-0">
+                                <svg class="w-6 h-6" fill="none" stroke="#00C2FF" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-extrabold text-white text-sm sm:text-base leading-tight" style="color: #FFFFFF;">Tu negocio</p>
+                                <p class="text-xs font-medium" style="color: #93C5FD;">Cero interrupción</p>
+                            </div>
+                        </div>
+
+                        <div class="hero-dark-card rounded-2xl p-4 flex items-center gap-3.5 hover:border-[#00C2FF] transition-all" style="background-color: #051633; border: 1px solid rgba(168, 85, 247, 0.5);">
+                            <div class="w-11 h-11 rounded-xl bg-[#A855F7]/30 border border-[#A855F7]/60 flex items-center justify-center text-[#00C2FF] shrink-0">
+                                <svg class="w-6 h-6" fill="none" stroke="#00C2FF" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-extrabold text-white text-sm sm:text-base leading-tight" style="color: #FFFFFF;">Nuestra prioridad</p>
+                                <p class="text-xs font-medium" style="color: #93C5FD;">100% Garantizado</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- BOTONES DE ACCIÓN (CTAs) -->
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+                        <a href="https://wa.me/593969016202?text=Hola%20SJA%20SOLUTIONS%2C%20necesito%20solicitar%20un%20t%C3%A9cnico%20a%20domicilio%20en%20Quito." 
+                           target="_blank" rel="noopener noreferrer"
+                           style="background-color: #00C2FF; color: #051838;"
+                           class="bg-[#00C2FF] hover:bg-white text-[#051838] font-black text-base px-7 py-4 rounded-2xl shadow-cyan-glow hover:-translate-y-0.5 transition-all flex items-center justify-center gap-3">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.126.556 4.124 1.529 5.859l-1.529 5.582 5.714-1.499c1.693.922 3.633 1.458 5.698 1.458 6.627 0 12-5.373 12-12s-5.385-11.4-11.412-11.4z"/>
+                            </svg>
+                            <span>Agendar al 0969016202</span>
+                        </a>
+                        <a href="#diagnostico" 
+                           style="background-color: #051633; color: #FFFFFF; border: 2px solid #00C2FF;"
+                           class="hover:bg-[#00C2FF]/20 text-white font-bold text-base px-7 py-4 rounded-2xl transition-all flex items-center justify-center gap-2">
+                            <span>Diagnóstico Interactivo</span>
+                            <svg class="w-5 h-5 text-[#00C2FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- COLUMNA DERECHA: TARJETA VISUAL DE SOPORTE EN SITIO -->
+                <div class="lg:col-span-5">
+                    <div class="relative rounded-3xl p-6 sm:p-7 shadow-2xl" style="background-color: #051633; border: 2px solid rgba(0, 194, 255, 0.4); color: #FFFFFF;">
+                        <div class="flex items-center justify-between pb-5 border-b border-white/15">
+                            <div>
+                                <span class="text-xs uppercase tracking-widest text-[#00C2FF] font-extrabold block" style="color: #00C2FF;">ATENCIÓN TÉCNICA EN SITIO</span>
+                                <h2 class="text-xl font-black text-white mt-0.5" style="color: #FFFFFF;">Especialistas en Quito</h2>
+                            </div>
+                            <div class="bg-emerald-500/20 border border-emerald-400/50 text-emerald-300 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5">
+                                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                                Técnicos Disponibles
+                            </div>
+                        </div>
+
+                        <div class="my-5 rounded-2xl p-5 relative overflow-hidden" style="background-color: #0A2D63; border: 1px solid rgba(0, 194, 255, 0.35);">
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="flex items-center gap-3">
+                                    <div class="px-2.5 py-1.5 rounded-xl bg-[#051633] border border-[#00C2FF]/50 flex items-center justify-center">
+                                        <svg class="h-8 w-auto overflow-visible" viewBox="0 0 280 90" fill="none">
+                                            <path d="M22 68 C12 38, 115 4, 182 8 C202 10, 192 34, 162 54" stroke="#00C2FF" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                            <path d="M108 25 H58 C42 25, 36 34, 36 42 C36 51, 43 56, 58 56 H88 C94 56, 97 59, 97 62 C97 66, 93 68, 86 68 H38 L33 79 H88 C106 79, 114 71, 114 61 C114 50, 106 45, 89 45 H60 C54 45, 52 43, 52 40 C52 37, 55 35, 61 35 H104 L108 25 Z" fill="#FFFFFF"/>
+                                            <path d="M148 25 H167 L154 60 C149 74, 138 80, 121 80 H112 L117 67 H123 C131 67, 135 64, 138 56 L148 25 Z" fill="#00C2FF"/>
+                                            <path d="M206 23 L164 79 H183 L206 47 L229 79 H248 L206 23 Z" fill="#FFFFFF"/>
+                                            <rect class="sja-p1" x="234" y="14" width="11" height="11" rx="2" fill="#A855F7"/>
+                                            <rect class="sja-p2" x="250" y="4" width="10" height="10" rx="2" fill="#A855F7"/>
+                                            <rect class="sja-p4" x="248" y="26" width="11" height="11" rx="2" fill="#00C2FF"/>
+                                            <rect class="sja-spark-1" x="265" y="14" width="8" height="8" rx="1.5" fill="#00C2FF"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs font-bold text-[#00C2FF]" style="color: #00C2FF;">SOLUCIONES QUE CONECTAN</p>
+                                        <p class="text-sm font-extrabold text-white" style="color: #FFFFFF;">Equipamiento Técnico Portátil</p>
+                                    </div>
+                                </div>
+                                <span class="text-xs font-bold bg-[#A855F7]/30 text-white px-2.5 py-1 rounded-lg border border-[#A855F7]">
+                                    Quito y Valles
+                                </span>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-3 mt-4">
+                                <div class="rounded-xl p-3 border border-white/15" style="background-color: #051633;">
+                                    <div class="flex items-center justify-between text-xs text-slate-200 mb-1">
+                                        <span>PC & Laptops</span>
+                                        <span class="text-[#00C2FF] font-bold">+300% Vel.</span>
+                                    </div>
+                                    <div class="w-full bg-white/15 h-2 rounded-full overflow-hidden">
+                                        <div class="bg-gradient-to-r from-[#00C2FF] to-[#A855F7] h-full w-[94%] rounded-full"></div>
+                                    </div>
+                                </div>
+                                <div class="rounded-xl p-3 border border-white/15" style="background-color: #051633;">
+                                    <div class="flex items-center justify-between text-xs text-slate-200 mb-1">
+                                        <span>Clonación + SSD</span>
+                                        <span class="text-[#00C2FF] font-bold">0% Pérdida</span>
+                                    </div>
+                                    <div class="w-full bg-white/15 h-2 rounded-full overflow-hidden">
+                                        <div class="bg-gradient-to-r from-[#A855F7] to-[#00C2FF] h-full w-full rounded-full"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <ul class="mt-4 space-y-2 text-xs sm:text-sm text-white font-medium" style="color: #FFFFFF;">
+                                <li class="flex items-center gap-2">
+                                    <span class="w-4 h-4 rounded-full bg-[#00C2FF] text-[#051838] flex items-center justify-center font-bold text-[10px]">✓</span>
+                                    Técnicos identificados con credencial SJA
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="w-4 h-4 rounded-full bg-[#00C2FF] text-[#051838] flex items-center justify-center font-bold text-[10px]">✓</span>
+                                    Diagnóstico y clonación transparente frente al cliente
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="w-4 h-4 rounded-full bg-[#00C2FF] text-[#051838] flex items-center justify-center font-bold text-[10px]">✓</span>
+                                    Garantía real en todos los trabajos realizados
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="rounded-2xl p-4 flex items-center justify-between" style="background: linear-gradient(90deg, rgba(168, 85, 247, 0.35) 0%, rgba(0, 194, 255, 0.35) 100%); border: 1px solid #00C2FF;">
+                            <div>
+                                <p class="text-[11px] uppercase tracking-wider text-slate-200 font-bold">WhatsApp Directo Quito</p>
+                                <p class="text-lg sm:text-xl font-black text-white tracking-wide" style="color: #FFFFFF;">0969016202</p>
+                            </div>
+                            <a href="https://wa.me/593969016202?text=Hola%20SJA%20SOLUTIONS%2C%20requiero%20asistencia%20t%C3%A9cnica%20a%20domicilio%20en%20Quito." 
+                               target="_blank" rel="noopener noreferrer"
+                               style="background-color: #00C2FF; color: #051838;"
+                               class="bg-[#00C2FF] hover:bg-white text-[#051838] font-extrabold text-xs sm:text-sm px-4 py-2.5 rounded-xl transition-colors shadow-md">
+                                Escribir Ahora
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE LOS 6 ÍCONOS DE SERVICIOS OFICIALES DEL MANUAL DE MARCA -->
+    <section id="categorias" class="py-14 bg-white border-b border-sja-navy/10 relative z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="text-xs font-extrabold uppercase tracking-widest text-sja-purple bg-sja-purple/10 px-3.5 py-1 rounded-full">
+                    PORTAFOLIO INTEGRAL
+                </span>
+                <h2 class="text-2xl sm:text-3xl font-black text-sja-navy mt-3">
+                    NUESTRAS ÁREAS DE ESPECIALIDAD
+                </h2>
+                <p class="text-sm text-slate-600 mt-2 font-medium">
+                    Haz clic en cualquier categoría para preseleccionarla en nuestro asistente de diagnóstico rápido.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5">
+                
+                <!-- 1. Computadoras y laptops -->
+                <button onclick="selectCategoryAndScroll('laptop', 'mantenimiento')" class="group bg-sja-light hover:bg-sja-navy p-5 rounded-2xl border border-sja-navy/10 hover:border-sja-cyan transition-all duration-300 flex flex-col items-center text-center shadow-sm hover:shadow-card-premium hover:-translate-y-1">
+                    <div class="w-16 h-16 rounded-full bg-sja-navy group-hover:bg-white/10 border-2 border-sja-cyan/40 flex items-center justify-center mb-3.5 transition-transform group-hover:scale-110">
+                        <svg class="w-8 h-8 text-white group-hover:text-sja-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <rect x="3" y="4" width="18" height="12" rx="2" stroke-width="2"/>
+                            <path stroke="#00C2FF" stroke-width="2.2" stroke-linecap="round" d="M2 19h20"/>
+                            <path stroke-width="1.8" d="M9 16v3m6-3v3"/>
+                        </svg>
+                    </div>
+                    <span class="font-extrabold text-sm text-sja-navy group-hover:text-white leading-snug">
+                        Computadoras<br>y laptops
+                    </span>
+                </button>
+
+                <!-- 2. Impresoras -->
+                <button onclick="selectCategoryAndScroll('impresora', 'config_imp')" class="group bg-sja-light hover:bg-sja-navy p-5 rounded-2xl border border-sja-navy/10 hover:border-sja-cyan transition-all duration-300 flex flex-col items-center text-center shadow-sm hover:shadow-card-premium hover:-translate-y-1">
+                    <div class="w-16 h-16 rounded-full bg-sja-navy group-hover:bg-white/10 border-2 border-sja-cyan/40 flex items-center justify-center mb-3.5 transition-transform group-hover:scale-110">
+                        <svg class="w-8 h-8 text-white group-hover:text-sja-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-width="2" d="M6 9V3h12v6"/>
+                            <rect x="3" y="9" width="18" height="8" rx="2" stroke-width="2"/>
+                            <rect x="7" y="14" width="10" height="7" rx="1" fill="#00C2FF" stroke="#0A2D63" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                    <span class="font-extrabold text-sm text-sja-navy group-hover:text-white leading-snug">
+                        Impresoras<br><span class="text-xs font-semibold opacity-75">Tinta y Láser</span>
+                    </span>
+                </button>
+
+                <!-- 3. Potenciación SSD y Clonación -->
+                <button onclick="selectCategoryAndScroll('laptop', 'ssd')" class="group bg-sja-light hover:bg-sja-navy p-5 rounded-2xl border border-sja-navy/10 hover:border-sja-cyan transition-all duration-300 flex flex-col items-center text-center shadow-sm hover:shadow-card-premium hover:-translate-y-1">
+                    <div class="w-16 h-16 rounded-full bg-sja-navy group-hover:bg-white/10 border-2 border-sja-cyan/40 flex items-center justify-center mb-3.5 transition-transform group-hover:scale-110">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <rect x="4" y="4" width="16" height="16" rx="2" stroke-width="2"/>
+                            <rect x="8" y="8" width="8" height="5" rx="1" stroke="#00C2FF" stroke-width="2"/>
+                            <circle cx="9" cy="16" r="1" fill="#00C2FF"/>
+                            <circle cx="15" cy="16" r="1" fill="#00C2FF"/>
+                        </svg>
+                    </div>
+                    <span class="font-extrabold text-sm text-sja-navy group-hover:text-white leading-snug">
+                        Upgrade SSD<br><span class="text-xs font-semibold opacity-75">y Clonación</span>
+                    </span>
+                </button>
+
+                <!-- 4. Cámaras -->
+                <button onclick="selectCategoryAndScroll('camaras', 'inst_cam')" class="group bg-sja-light hover:bg-sja-navy p-5 rounded-2xl border border-sja-navy/10 hover:border-sja-cyan transition-all duration-300 flex flex-col items-center text-center shadow-sm hover:shadow-card-premium hover:-translate-y-1">
+                    <div class="w-16 h-16 rounded-full bg-sja-navy group-hover:bg-white/10 border-2 border-sja-cyan/40 flex items-center justify-center mb-3.5 transition-transform group-hover:scale-110">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 9l11-4 6 4-9 5-8-5z"/>
+                            <path stroke="#00C2FF" stroke-width="2.2" stroke-linecap="round" d="M6 12v5l5 2"/>
+                            <circle cx="17" cy="10" r="2" fill="#00C2FF"/>
+                        </svg>
+                    </div>
+                    <span class="font-extrabold text-sm text-sja-navy group-hover:text-white leading-snug">
+                        Cámaras<br><span class="text-xs font-semibold opacity-75">Seguridad WiFi</span>
+                    </span>
+                </button>
+
+                <!-- 5. Instalación y configuración -->
+                <button onclick="selectCategoryAndScroll('escritorio', 'optimizacion_pc')" class="group bg-sja-light hover:bg-sja-navy p-5 rounded-2xl border border-sja-navy/10 hover:border-sja-cyan transition-all duration-300 flex flex-col items-center text-center shadow-sm hover:shadow-card-premium hover:-translate-y-1">
+                    <div class="w-16 h-16 rounded-full bg-sja-navy group-hover:bg-white/10 border-2 border-sja-cyan/40 flex items-center justify-center mb-3.5 transition-transform group-hover:scale-110">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                            <circle cx="12" cy="12" r="3" stroke="#00C2FF" stroke-width="2.2"/>
+                        </svg>
+                    </div>
+                    <span class="font-extrabold text-sm text-sja-navy group-hover:text-white leading-snug">
+                        Instalación y<br>configuración
+                    </span>
+                </button>
+
+                <!-- 6. Mantenimiento y soporte -->
+                <button onclick="selectCategoryAndScroll('negocios', 'smart_neg')" class="group bg-sja-light hover:bg-sja-navy p-5 rounded-2xl border border-sja-navy/10 hover:border-sja-cyan transition-all duration-300 flex flex-col items-center text-center shadow-sm hover:shadow-card-premium hover:-translate-y-1">
+                    <div class="w-16 h-16 rounded-full bg-sja-navy group-hover:bg-white/10 border-2 border-sja-cyan/40 flex items-center justify-center mb-3.5 transition-transform group-hover:scale-110">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke="#00C2FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>
+                        </svg>
+                    </div>
+                    <span class="font-extrabold text-sm text-sja-navy group-hover:text-white leading-snug">
+                        Mantenimiento<br>y soporte
+                    </span>
+                </button>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE SERVICIOS DESTACADOS (LOS 4 FLYERS OFICIALES INTERACTIVOS CON FONDO AZUL UNIFORME) -->
+    <section id="servicios" class="py-20 bg-sja-light relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+                <div>
+                    <span class="inline-block text-xs font-extrabold uppercase tracking-widest text-sja-navy bg-sja-cyan/25 px-3.5 py-1.5 rounded-full">
+                        ATENCIÓN INMEDIATA EN QUITO
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-black text-sja-navy mt-3">
+                        ¿QUÉ PROBLEMA RESOLVEMOS HOY?
+                    </h2>
+                </div>
+                <p class="text-slate-600 text-sm sm:text-base max-w-md font-medium">
+                    Selecciona la solución que necesitas y solicita un técnico directamente a tu domicilio u oficina con un solo clic.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                <!-- TARJETA 1: ¿TU COMPUTADORA ESTÁ LENTA? -->
+                <div class="sja-hero-bg rounded-3xl p-7 sm:p-8 text-white shadow-xl border border-sja-cyan/25 relative overflow-hidden group flex flex-col justify-between">
+                    <div class="absolute -top-10 -left-10 w-28 h-28 bg-gradient-to-br from-sja-cyan to-sja-purple rotate-45 opacity-30"></div>
+                    
+                    <div>
+                        <div class="flex items-center justify-between gap-4 mb-6">
+                            <span class="bg-sja-purple/90 text-white text-[11px] font-extrabold uppercase tracking-wider px-3.5 py-1 rounded-full">
+                                SERVICIO A DOMICILIO EN QUITO
+                            </span>
+                            <span class="text-xs font-extrabold text-sja-cyan tracking-widest">PC & LAPTOPS</span>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-12 gap-6 items-center">
+                            <div class="sm:col-span-7 space-y-4">
+                                <h3 class="text-2xl sm:text-3xl font-black leading-tight">
+                                    ¿TU COMPUTADORA <span class="text-sja-cyan">ESTÁ LENTA?</span>
+                                </h3>
+                                <ul class="space-y-2.5 text-sm font-semibold text-slate-100">
+                                    <li class="flex items-center gap-2.5">
+                                        <span class="w-5 h-5 rounded-full bg-sja-cyan text-sja-dark flex items-center justify-center text-xs font-black shrink-0">✓</span>
+                                        Mantenimiento preventivo y correctivo
+                                    </li>
+                                    <li class="flex items-center gap-2.5">
+                                        <span class="w-5 h-5 rounded-full bg-sja-cyan text-sja-dark flex items-center justify-center text-xs font-black shrink-0">✓</span>
+                                        Optimización extrema de velocidad
+                                    </li>
+                                    <li class="flex items-center gap-2.5">
+                                        <span class="w-5 h-5 rounded-full bg-sja-cyan text-sja-dark flex items-center justify-center text-xs font-black shrink-0">✓</span>
+                                        Instalación de Windows, Office y programas
+                                    </li>
+                                    <li class="flex items-center gap-2.5">
+                                        <span class="w-5 h-5 rounded-full bg-sja-cyan text-sja-dark flex items-center justify-center text-xs font-black shrink-0">✓</span>
+                                        Limpieza interna y cambio de pasta térmica
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="sm:col-span-5 flex justify-center">
+                                <div class="w-40 h-36 bg-white/5 rounded-2xl border border-white/15 p-3 flex flex-col items-center justify-center relative">
+                                    <svg class="w-32 h-24" viewBox="0 0 100 75" fill="none">
+                                        <rect x="12" y="6" width="76" height="48" rx="4" fill="#06152d" stroke="#00C2FF" stroke-width="2"/>
+                                        <path d="M30 44 A22 22 0 0 1 70 44" stroke="url(#gradGauge)" stroke-width="5" stroke-linecap="round"/>
+                                        <defs>
+                                            <linearGradient id="gradGauge" x1="0" y1="0" x2="1" y2="0">
+                                                <stop offset="0%" stop-color="#00C2FF"/>
+                                                <stop offset="100%" stop-color="#A855F7"/>
+                                            </linearGradient>
+                                        </defs>
+                                        <line x1="50" y1="44" x2="63" y2="27" stroke="#00C2FF" stroke-width="3" stroke-linecap="round" class="gauge-needle"/>
+                                        <circle cx="50" cy="44" r="3.5" fill="#fff"/>
+                                        <path d="M4 55 H96 L90 66 H10 L4 55 Z" fill="#94a3b8" stroke="#0A2D63" stroke-width="1.5"/>
+                                    </svg>
+                                    <span class="text-[10px] font-extrabold text-sja-cyan uppercase tracking-wider mt-1">Máximo Rendimiento</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-7 pt-5 border-t border-white/15 flex flex-wrap items-center justify-between gap-3">
+                        <button onclick="selectCategoryAndScroll('laptop', 'mantenimiento')" class="text-xs font-extrabold text-sja-cyan hover:underline flex items-center gap-1">
+                            <span>Diagnosticar mi PC</span>
+                            <span>→</span>
+                        </button>
+                        <a href="https://wa.me/593969016202?text=Hola%20SJA%20SOLUTIONS%2C%20mi%20computadora%20est%C3%A1%20lenta%20y%20deseo%20cotizar%20mantenimiento%20u%20optimizaci%C3%B3n%20a%20domicilio%20en%20Quito."
+                           target="_blank" rel="noopener noreferrer"
+                           class="bg-sja-cyan hover:bg-white text-sja-dark font-black text-xs sm:text-sm px-5 py-2.5 rounded-full transition-all flex items-center gap-2 shadow-md">
+                            <span>Solicitar al 0969016202</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- TARJETA 2: ¿TU IMPRESORA NO FUNCIONA? -->
+                <div class="sja-hero-bg rounded-3xl p-7 sm:p-8 text-white shadow-xl border border-sja-cyan/25 relative overflow-hidden group flex flex-col justify-between">
+                    <div class="absolute -top-10 -right-10 w-28 h-28 bg-gradient-to-br from-sja-purple to-sja-cyan rotate-45 opacity-25"></div>
+
+                    <div>
+                        <div class="flex items-center justify-between gap-4 mb-6">
+                            <span class="bg-sja-purple/90 text-white text-[11px] font-extrabold uppercase tracking-wider px-3.5 py-1 rounded-full">
+                                SERVICIO A DOMICILIO EN QUITO
+                            </span>
+                            <span class="text-xs font-extrabold text-sja-cyan tracking-widest">IMPRESORAS</span>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-12 gap-6 items-center">
+                            <div class="sm:col-span-7 space-y-4">
+                                <h3 class="text-2xl sm:text-3xl font-black leading-tight text-white">
+                                    ¿TU IMPRESORA <span class="text-sja-cyan">NO FUNCIONA?</span>
+                                </h3>
+                                <ul class="space-y-2.5 text-sm font-semibold text-slate-100">
+                                    <li class="flex items-center gap-2.5">
+                                        <span class="w-5 h-5 rounded-full bg-sja-cyan text-sja-dark flex items-center justify-center text-xs font-black shrink-0">✓</span>
+                                        Configuración completa de drivers y escáner
+                                    </li>
+                                    <li class="flex items-center gap-2.5">
+                                        <span class="w-5 h-5 rounded-full bg-sja-cyan text-sja-dark flex items-center justify-center text-xs font-black shrink-0">✓</span>
+                                        Instalación en una o varias computadoras
+                                    </li>
+                                    <li class="flex items-center gap-2.5">
+                                        <span class="w-5 h-5 rounded-full bg-sja-cyan text-sja-dark flex items-center justify-center text-xs font-black shrink-0">✓</span>
+                                        Conexión de impresión desde PC y celular
+                                    </li>
+                                    <li class="flex items-center gap-2.5">
+                                        <span class="w-5 h-5 rounded-full bg-sja-cyan text-sja-dark flex items-center justify-center text-xs font-black shrink-0">✓</span>
+                                        Mantenimiento, cabezales y reseteo de almohadillas
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="sm:col-span-5 flex justify-center">
+                                <div class="w-40 h-36 bg-white/5 rounded-2xl border border-white/15 p-3 flex flex-col items-center justify-center">
+                                    <svg class="w-32 h-24" viewBox="0 0 100 75" fill="none">
+                                        <path d="M28 10 H72 L68 26 H32 L28 10 Z" fill="#06152d" stroke="#00C2FF" stroke-width="1.5"/>
+                                        <rect x="14" y="24" width="72" height="30" rx="6" fill="#0f172a" stroke="#00C2FF" stroke-width="2"/>
+                                        <rect x="20" y="30" width="22" height="5" rx="2" fill="#00C2FF"/>
+                                        <circle cx="75" cy="33" r="2.5" fill="#22c55e"/>
+                                        <path d="M28 48 H72 L78 68 H22 L28 48 Z" fill="#ffffff" stroke="#00C2FF" stroke-width="1.5"/>
+                                        <line x1="33" y1="55" x2="67" y2="55" stroke="#0A2D63" stroke-width="2"/>
+                                        <line x1="31" y1="61" x2="58" y2="61" stroke="#00C2FF" stroke-width="2"/>
+                                    </svg>
+                                    <span class="text-[10px] font-extrabold text-sja-cyan uppercase tracking-wider mt-1">Epson • HP • Canon • Brother</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-7 pt-5 border-t border-white/15 flex flex-wrap items-center justify-between gap-3">
+                        <button onclick="selectCategoryAndScroll('impresora', 'config_imp')" class="text-xs font-extrabold text-sja-cyan hover:underline flex items-center gap-1">
+                            <span>Diagnosticar mi Impresora</span>
+                            <span>→</span>
+                        </button>
+                        <a href="https://wa.me/593969016202?text=Hola%20SJA%20SOLUTIONS%2C%20mi%20impresora%20presenta%20problemas%20y%20necesito%20revisi%C3%B3n%20a%20domicilio%20en%20Quito."
+                           target="_blank" rel="noopener noreferrer"
+                           class="bg-sja-cyan hover:bg-white text-sja-dark font-black text-xs sm:text-sm px-5 py-2.5 rounded-full transition-all flex items-center gap-2 shadow-md">
+                            <span>Solicitar al 0969016202</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- TARJETA 3: POTENCIACIÓN SSD Y CLONACIÓN DE SISTEMA -->
+                <div class="sja-hero-bg rounded-3xl p-7 sm:p-8 text-white shadow-xl border border-sja-cyan/25 relative overflow-hidden group flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between gap-4 mb-6">
+                            <span class="bg-sja-purple/90 text-white text-[11px] font-extrabold uppercase tracking-wider px-3.5 py-1 rounded-full">
+                                SERVICIO A DOMICILIO EN QUITO
+                            </span>
+                            <span class="text-xs font-extrabold text-sja-cyan tracking-widest">CLONACIÓN + SSD</span>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-12 gap-6 items-center">
+                            <div class="sm:col-span-7 space-y-4">
+                                <h3 class="text-2xl sm:text-3xl font-black leading-tight">
+                                    POTENCIACIÓN <span class="text-sja-cyan">SSD Y CLONACIÓN</span>
+                                </h3>
+                                <ul class="space-y-2.5 text-sm font-semibold text-slate-100">
+                                    <li class="flex items-center gap-2.5">
+                                        <span class="w-5 h-5 rounded-full bg-sja-cyan text-sja-dark flex items-center justify-center text-xs font-black shrink-0">✓</span>
+                                        Instalación de disco sólido SSD (256GB / 512GB)
+                                    </li>
+                                    <li class="flex items-center gap-2.5">
+                                        <span class="w-5 h-5 rounded-full bg-sja-cyan text-sja-dark flex items-center justify-center text-xs font-black shrink-0">✓</span>
+                                        Clonación íntegra sin perder ni un solo archivo
+                                    </li>
+                                    <li class="flex items-center gap-2.5">
+                                        <span class="w-5 h-5 rounded-full bg-sja-cyan text-sja-dark flex items-center justify-center text-xs font-black shrink-0">✓</span>
+                                        Conservas todos tus programas y licencias
+                                    </li>
+                                    <li class="flex items-center gap-2.5">
+                                        <span class="w-5 h-5 rounded-full bg-sja-cyan text-sja-dark flex items-center justify-center text-xs font-black shrink-0">✓</span>
+                                        Encendido hasta 10 veces más rápido
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="sm:col-span-5 flex justify-center">
+                                <div class="w-40 h-36 bg-white/5 rounded-2xl border border-white/15 p-3 flex flex-col items-center justify-center">
+                                    <svg class="w-32 h-24" viewBox="0 0 100 75" fill="none">
+                                        <rect x="16" y="10" width="68" height="48" rx="6" fill="#0f172a" stroke="#00C2FF" stroke-width="2"/>
+                                        <rect x="25" y="18" width="50" height="20" rx="3" fill="#06152d" stroke="#A855F7" stroke-width="1.5"/>
+                                        <text x="50" y="32" text-anchor="middle" fill="#00C2FF" font-family="Montserrat, sans-serif" font-weight="900" font-size="12">SSD PRO</text>
+                                        <line class="animate-wave-1" x1="26" y1="47" x2="56" y2="47" stroke="#00C2FF" stroke-width="3" stroke-linecap="round"/>
+                                        <circle cx="68" cy="47" r="3" fill="#22c55e"/>
+                                    </svg>
+                                    <span class="text-[10px] font-extrabold text-sja-cyan uppercase tracking-wider mt-1">10x Más Velocidad</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-7 pt-5 border-t border-white/15 flex flex-wrap items-center justify-between gap-3">
+                        <button onclick="selectCategoryAndScroll('laptop', 'ssd')" class="text-xs font-extrabold text-sja-cyan hover:underline flex items-center gap-1">
+                            <span>Cotizar Upgrade SSD</span>
+                            <span>→</span>
+                        </button>
+                        <a href="https://wa.me/593969016202?text=Hola%20SJA%20SOLUTIONS%2C%20deseo%20informaci%C3%B3n%20sobre%20instalaci%C3%B3n%20de%20disco%20s%C3%B3lido%20SSD%20con%20clonaci%C3%B3n%20de%20sistema%20a%20domicilio%20en%20Quito."
+                           target="_blank" rel="noopener noreferrer"
+                           class="bg-sja-cyan hover:bg-white text-sja-dark font-black text-xs sm:text-sm px-5 py-2.5 rounded-full transition-all flex items-center gap-2 shadow-md">
+                            <span>Solicitar al 0969016202</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- TARJETA 4: INSTALACIÓN DE CÁMARAS -->
+                <div class="sja-hero-bg rounded-3xl p-7 sm:p-8 text-white shadow-xl border border-sja-purple/40 relative overflow-hidden group flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between gap-4 mb-6">
+                            <span class="bg-sja-purple text-white text-[11px] font-extrabold uppercase tracking-wider px-3.5 py-1 rounded-full">
+                                SERVICIO A DOMICILIO EN QUITO
+                            </span>
+                            <span class="text-xs font-extrabold text-sja-cyan tracking-widest">SEGURIDAD ELECTRÓNICA</span>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-12 gap-6 items-center">
+                            <div class="sm:col-span-7 space-y-4">
+                                <h3 class="text-2xl sm:text-3xl font-black leading-tight">
+                                    INSTALACIÓN <span class="text-sja-cyan">DE CÁMARAS</span>
+                                </h3>
+                                <ul class="space-y-2.5 text-sm font-semibold text-slate-100">
+                                    <li class="flex items-center gap-2.5">
+                                        <span class="w-5 h-5 rounded-full bg-sja-cyan text-sja-dark flex items-center justify-center text-xs font-black shrink-0">✓</span>
+                                        Configuración de cámaras Wifi
+                                    </li>
+                                    <li class="flex items-center gap-2.5">
+                                        <span class="w-5 h-5 rounded-full bg-sja-cyan text-sja-dark flex items-center justify-center text-xs font-black shrink-0">✓</span>
+                                        Vinculación directa con tu celular en vivo 24/7
+                                    </li>
+                                    <li class="flex items-center gap-2.5">
+                                        <span class="w-5 h-5 rounded-full bg-sja-cyan text-sja-dark flex items-center justify-center text-xs font-black shrink-0">✓</span>
+                                        Instalación limpia y estética en interiores/exteriores
+                                    </li>
+                                    <li class="flex items-center gap-2.5">
+                                        <span class="w-5 h-5 rounded-full bg-sja-cyan text-sja-dark flex items-center justify-center text-xs font-black shrink-0">✓</span>
+                                        Sistemas completos de videovigilancia
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="sm:col-span-5 flex justify-center">
+                                <div class="w-40 h-36 bg-white/5 rounded-2xl border border-white/15 p-3 flex flex-col items-center justify-center">
+                                    <svg class="w-32 h-24" viewBox="0 0 100 75" fill="none">
+                                        <rect x="10" y="34" width="8" height="24" rx="3" fill="#94a3b8"/>
+                                        <path d="M18 46 H35 L42 36" stroke="#cbd5e1" stroke-width="5" stroke-linecap="round"/>
+                                        <g transform="rotate(12 52 32)">
+                                            <rect x="26" y="16" width="52" height="26" rx="10" fill="#f8fafc" stroke="#0A2D63" stroke-width="2"/>
+                                            <path d="M28 16 H84 L78 24 H28 Z" fill="#e2e8f0"/>
+                                            <circle cx="72" cy="29" r="9" fill="#0f172a" stroke="#00C2FF" stroke-width="2"/>
+                                            <circle cx="72" cy="29" r="3.5" fill="#00C2FF"/>
+                                            <circle cx="40" cy="29" r="2" fill="#ef4444"/>
+                                        </g>
+                                    </svg>
+                                    <span class="text-[10px] font-extrabold text-sja-cyan uppercase tracking-wider mt-1">Monitoreo desde tu Celular</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-7 pt-5 border-t border-white/15 flex flex-wrap items-center justify-between gap-3">
+                        <button onclick="selectCategoryAndScroll('camaras', 'inst_cam')" class="text-xs font-extrabold text-sja-cyan hover:underline flex items-center gap-1">
+                            <span>Cotizar Cámaras</span>
+                            <span>→</span>
+                        </button>
+                        <a href="https://wa.me/593969016202?text=Hola%20SJA%20SOLUTIONS%2C%20deseo%20cotizar%20instalaci%C3%B3n%20o%20configuraci%C3%B3n%20de%20c%C3%A1maras%20de%20seguridad%20a%20domicilio%20en%20Quito."
+                           target="_blank" rel="noopener noreferrer"
+                           class="bg-sja-cyan hover:bg-white text-sja-dark font-black text-xs sm:text-sm px-5 py-2.5 rounded-full transition-all flex items-center gap-2 shadow-md">
+                            <span>Solicitar al 0969016202</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SECCIÓN DE PAQUETES ADAPTADA FIELMENTE AL DISEÑO DE LA IMAGEN 1           -->
+    <!-- ========================================================================= -->
+    <section id="paquetes" class="py-20 bg-[#F4F8FC] border-y border-sja-navy/10 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-widest text-sja-navy bg-sja-cyan/25 px-4 py-1.5 rounded-full">
+                    TARIFAS OFICIALES A DOMICILIO EN QUITO
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-black text-sja-navy mt-3">
+                    PAQUETES ESPECIALIZADOS SJA SOLUTIONS
+                </h2>
+                <p class="text-slate-600 mt-2 font-medium text-sm sm:text-base">
+                    Elige el paquete ideal para el cuidado de tu equipo o solicita varios servicios tecnológicos en una sola visita a domicilio.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-7 items-stretch pt-4">
+                
+                <!-- 1. TARJETA IZQUIERDA: SJA HOME ($20) -->
+                <div class="bg-white rounded-[28px] p-6 sm:p-7 border border-slate-200/90 shadow-card-premium flex flex-col justify-between">
+                    <div>
+                        <div class="bg-[#DDF2FD] text-[#0A2D63] rounded-2xl px-4 py-2.5 flex items-center gap-3 mb-5">
+                            <svg class="w-5 h-5 text-[#0077C8] shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/>
+                            </svg>
+                            <span class="text-xs font-extrabold uppercase tracking-wide leading-tight">
+                                REVISIÓN Y MANTENIMIENTO<br>BÁSICO
+                            </span>
+                        </div>
+
+                        <div class="grid grid-cols-12 items-center gap-2 mb-3">
+                            <div class="col-span-7">
+                                <h3 class="text-2xl sm:text-[26px] font-black text-[#0F172A] tracking-tight leading-none">
+                                    SJA HOME
+                                </h3>
+                                <div class="text-5xl sm:text-[54px] font-black text-[#0051A8] leading-none mt-2">
+                                    $20
+                                </div>
+                            </div>
+                            <div class="col-span-5 flex justify-end">
+                                <svg class="w-36 h-24 drop-shadow-md" viewBox="0 0 140 95" fill="none">
+                                    <polygon points="35,12 128,8 118,68 28,68" fill="#0A2D63" stroke="#1E293B" stroke-width="2.5" stroke-linejoin="round"/>
+                                    <polygon points="38,16 123,12 114,64 32,64" fill="url(#laptopScreen1)"/>
+                                    <polygon points="8,74 28,68 118,68 132,74" fill="#CBD5E1"/>
+                                    <rect x="8" y="74" width="124" height="4" rx="2" fill="#64748B"/>
+                                    <defs>
+                                        <linearGradient id="laptopScreen1" x1="0" y1="0" x2="1" y2="1">
+                                            <stop offset="0%" stop-color="#00C2FF"/>
+                                            <stop offset="55%" stop-color="#0284C7"/>
+                                            <stop offset="100%" stop-color="#0A2D63"/>
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <p class="text-[13.5px] text-slate-700 font-medium leading-snug pb-4 border-b border-slate-200">
+                            Ideal para un equipo en buen estado que necesita una revisión preventiva.
+                        </p>
+
+                        <div class="divide-y divide-slate-100 my-2">
+                            <div class="py-3.5 flex items-center gap-4">
+                                <div class="w-11 h-11 rounded-full bg-[#E3F3FC] text-[#0051A8] flex items-center justify-center shrink-0">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                                        <rect x="5" y="3" width="14" height="18" rx="2"/>
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-extrabold text-slate-900">Revisión general</h4>
+                                    <p class="text-xs text-slate-600 font-medium">Verificación de hardware y software.</p>
+                                </div>
+                            </div>
+
+                            <div class="py-3.5 flex items-center gap-4">
+                                <div class="w-11 h-11 rounded-full bg-[#E3F3FC] text-[#0051A8] flex items-center justify-center shrink-0">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 4l5 5L8 21H3v-5L15 4z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-extrabold text-slate-900">Limpieza externa</h4>
+                                    <p class="text-xs text-slate-600 font-medium">Teclado, pantalla y puertos.</p>
+                                </div>
+                            </div>
+
+                            <div class="py-3.5 flex items-center gap-4">
+                                <div class="w-11 h-11 rounded-full bg-[#E3F3FC] text-[#0051A8] flex items-center justify-center shrink-0">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                                        <circle cx="12" cy="12" r="3"/>
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-extrabold text-slate-900">Optimización básica</h4>
+                                    <p class="text-xs text-slate-600 font-medium">Mejor rendimiento del sistema.</p>
+                                </div>
+                            </div>
+
+                            <div class="py-3.5 flex items-center gap-4">
+                                <div class="w-11 h-11 rounded-full bg-[#E3F3FC] text-[#0051A8] flex items-center justify-center shrink-0">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                                        <rect x="5" y="3" width="14" height="18" rx="2"/>
+                                        <line x1="9" y1="8" x2="15" y2="8"/>
+                                        <line x1="9" y1="12" x2="15" y2="12"/>
+                                        <line x1="9" y1="16" x2="13" y2="16"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-extrabold text-slate-900">Recomendaciones</h4>
+                                    <p class="text-xs text-slate-600 font-medium">Informe con estado del equipo.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 pt-2">
+                        <div class="bg-[#DDF2FD] rounded-2xl p-3.5 flex items-center gap-3.5 mb-5">
+                            <div class="w-9 h-9 rounded-full bg-white/80 text-[#0077C8] flex items-center justify-center shrink-0">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                                </svg>
+                            </div>
+                            <p class="text-xs font-bold text-[#0A2D63] leading-snug">
+                                Perfecto para mantener tu equipo estable y seguro.
+                            </p>
+                        </div>
+
+                        <a href="https://wa.me/593969016202?text=Hola%20SJA%20SOLUTIONS%2C%20deseo%20solicitar%20el%20paquete%20SJA%20HOME%20(%2420)%20a%20domicilio%20en%20Quito."
+                           target="_blank" rel="noopener noreferrer"
+                           class="w-full bg-[#0051A8] hover:bg-[#0A2D63] text-white font-extrabold text-base py-3.5 px-6 rounded-2xl shadow-md transition-all flex items-center justify-center gap-2">
+                            <span>Solicitar</span>
+                            <span class="text-lg leading-none">&gt;</span>
+                        </a>
+                        <p class="text-center text-xs font-extrabold text-slate-800 mt-3 tracking-wide">
+                            SJA HOME ($20)
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 2. TARJETA CENTRAL: SJA HOME PLUS ($35) - EL MÁS COMPLETO -->
+                <div class="sja-hero-bg rounded-[28px] p-6 sm:p-7 text-white border-2 border-[#00C2FF] shadow-cyan-glow relative flex flex-col justify-between lg:-mt-4 lg:mb-0">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[#0099FF] to-[#00C2FF] text-white text-xs font-black uppercase tracking-wider px-5 py-1.5 rounded-full shadow-lg flex items-center gap-1.5 whitespace-nowrap border border-white/30">
+                        <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-1h14v1z"/>
+                        </svg>
+                        <span>EL MÁS COMPLETO</span>
+                    </div>
+
+                    <div class="pt-3">
+                        <h3 class="text-2xl sm:text-[27px] font-black text-white tracking-tight leading-none">
+                            SJA HOME PLUS
+                        </h3>
+
+                        <div class="grid grid-cols-12 items-center gap-2 my-2">
+                            <div class="col-span-6 flex items-start gap-2">
+                                <div class="text-5xl sm:text-[56px] font-black text-[#00C2FF] leading-none">
+                                    $35
+                                </div>
+                                <span class="text-amber-300 text-xl mt-1">✦</span>
+                            </div>
+                            <div class="col-span-6 flex justify-end">
+                                <svg class="w-36 h-24 drop-shadow-[0_8px_16px_rgba(0,194,255,0.3)]" viewBox="0 0 140 95" fill="none">
+                                    <polygon points="35,12 128,8 118,68 28,68" fill="#051838" stroke="#00C2FF" stroke-width="2" stroke-linejoin="round"/>
+                                    <polygon points="38,16 123,12 114,64 32,64" fill="url(#laptopScreen2)"/>
+                                    <polygon points="8,74 28,68 118,68 132,74" fill="#94A3B8"/>
+                                    <rect x="8" y="74" width="124" height="4" rx="2" fill="#475569"/>
+                                    <defs>
+                                        <linearGradient id="laptopScreen2" x1="0" y1="0" x2="1" y2="1">
+                                            <stop offset="0%" stop-color="#38BDF8"/>
+                                            <stop offset="50%" stop-color="#0284C7"/>
+                                            <stop offset="100%" stop-color="#1E3A8A"/>
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <p class="text-[13.5px] text-slate-100 font-medium leading-snug pb-3.5 border-b border-white/15">
+                            Mantenimiento completo para un mejor rendimiento y mayor vida útil.
+                        </p>
+
+                        <div class="divide-y divide-white/10 my-1">
+                            <div class="py-2.5 flex items-center gap-3.5">
+                                <div class="w-10 h-10 rounded-full bg-white text-[#0051A8] flex items-center justify-center shrink-0 shadow">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 4l5 5L8 21H3v-5L15 4z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs sm:text-[13.5px] font-extrabold text-white leading-tight">Limpieza interna</h4>
+                                    <p class="text-[11.5px] text-slate-200">Eliminación de polvo en componentes.</p>
+                                </div>
+                            </div>
+
+                            <div class="py-2.5 flex items-center gap-3.5">
+                                <div class="w-10 h-10 rounded-full bg-white text-[#0051A8] flex items-center justify-center shrink-0 shadow">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                                        <circle cx="12" cy="12" r="9"/>
+                                        <path stroke-linecap="round" d="M12 12c0-3 2.5-5 4.5-3.5S15 12 12 12zm0 0c3 0 5 2.5 3.5 4.5S12 15 12 12zm0 0c0 3-2.5 5-4.5 3.5S9 12 12 12zm0 0c-3 0-5-2.5-3.5-4.5S12 9 12 12z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs sm:text-[13.5px] font-extrabold text-white leading-tight">Mantenimiento de ventiladores</h4>
+                                    <p class="text-[11.5px] text-slate-200">Mejora la disipación del calor.</p>
+                                </div>
+                            </div>
+
+                            <div class="py-2.5 flex items-center gap-3.5">
+                                <div class="w-10 h-10 rounded-full bg-white text-[#0051A8] flex items-center justify-center shrink-0 shadow">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                                        <rect x="3" y="7" width="18" height="9" rx="1.5"/>
+                                        <path d="M7 16v2m5-2v2m5-2v2M7 10v3m5-3v3m5-3v3"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs sm:text-[13.5px] font-extrabold text-white leading-tight">Revisión de RAM</h4>
+                                    <p class="text-[11.5px] text-slate-200">Comprobación de memoria y funcionamiento.</p>
+                                </div>
+                            </div>
+
+                            <div class="py-2.5 flex items-center gap-3.5">
+                                <div class="w-10 h-10 rounded-full bg-white text-[#0051A8] flex items-center justify-center shrink-0 shadow">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                                        <rect x="5" y="3" width="14" height="18" rx="2"/>
+                                        <circle cx="12" cy="10" r="3"/>
+                                        <line x1="9" y1="17" x2="15" y2="17"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs sm:text-[13.5px] font-extrabold text-white leading-tight">Revisión de almacenamiento</h4>
+                                    <p class="text-[11.5px] text-slate-200">Estado del disco duro o SSD.</p>
+                                </div>
+                            </div>
+
+                            <div class="py-2.5 flex items-center gap-3.5">
+                                <div class="w-10 h-10 rounded-full bg-white text-[#0051A8] flex items-center justify-center shrink-0 shadow">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                                        <circle cx="12" cy="12" r="3"/>
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs sm:text-[13.5px] font-extrabold text-white leading-tight">Optimización del sistema</h4>
+                                    <p class="text-[11.5px] text-slate-200">Ajustes avanzados para mejor rendimiento.</p>
+                                </div>
+                            </div>
+
+                            <div class="py-2.5 flex items-center gap-3.5">
+                                <div class="w-10 h-10 rounded-full bg-white text-[#0051A8] flex items-center justify-center shrink-0 shadow">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                                        <rect x="3" y="3" width="7" height="7" rx="1"/>
+                                        <rect x="14" y="3" width="7" height="7" rx="1"/>
+                                        <rect x="3" y="14" width="7" height="7" rx="1"/>
+                                        <path stroke-linecap="round" d="M17.5 14v7m-3.5-3.5h7"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs sm:text-[13.5px] font-extrabold text-white leading-tight">Configuración de programas</h4>
+                                    <p class="text-[11.5px] text-slate-200">Instalación y configuración de programas necesarios.</p>
+                                </div>
+                            </div>
+
+                            <div class="py-2.5 flex items-center gap-3.5">
+                                <div class="w-10 h-10 rounded-full bg-white text-[#0051A8] flex items-center justify-center shrink-0 shadow">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-4m3 4v-7m3 7v-2M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs sm:text-[13.5px] font-extrabold text-white leading-tight">Reporte técnico</h4>
+                                    <p class="text-[11.5px] text-slate-200">Resumen del servicio y recomendaciones.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-3 pt-2">
+                        <div class="bg-[#07224D] border border-[#00C2FF]/50 rounded-2xl p-3.5 flex items-center gap-3 mb-5">
+                            <span class="text-amber-400 text-2xl shrink-0">★</span>
+                            <p class="text-xs font-bold text-white leading-snug">
+                                Ideal para equipos que necesitan un mantenimiento completo.
+                            </p>
+                        </div>
+
+                        <a href="https://wa.me/593969016202?text=Hola%20SJA%20SOLUTIONS%2C%20deseo%20solicitar%20el%20paquete%20SJA%20HOME%20PLUS%20(%2435)%20a%20domicilio%20en%20Quito."
+                           target="_blank" rel="noopener noreferrer"
+                           class="w-full bg-gradient-to-r from-[#00A8FF] to-[#00D1FF] hover:from-white hover:to-white text-white hover:text-[#051838] font-extrabold text-base py-3.5 px-6 rounded-2xl shadow-lg transition-all flex items-center justify-center gap-2">
+                            <span>Solicitar</span>
+                            <span class="text-lg leading-none">&gt;</span>
+                        </a>
+                        <p class="text-center text-xs font-extrabold text-white mt-3 tracking-wide">
+                            SJA HOME PLUS ($35)
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 3. TARJETA DERECHA: SJA HOME SMART ($50) -->
+                <div class="bg-white rounded-[28px] p-6 sm:p-7 border-2 border-[#D8B4FE] shadow-card-premium flex flex-col justify-between">
+                    <div>
+                        <div class="bg-[#F3E8FF] text-[#3B0764] rounded-2xl px-4 py-2.5 flex items-center gap-3 mb-5">
+                            <svg class="w-6 h-6 text-[#7E22CE] shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                            </svg>
+                            <span class="text-xs font-extrabold uppercase tracking-wide leading-tight">
+                                HASTA 3 SERVICIOS<br>EN 1 VISITA
+                            </span>
+                        </div>
+
+                        <div class="grid grid-cols-12 items-center gap-2 mb-3">
+                            <div class="col-span-12">
+                                <h3 class="text-2xl sm:text-[25px] font-black text-[#0F172A] tracking-tight leading-none">
+                                    SJA HOME SMART
+                                </h3>
+                            </div>
+                            <div class="col-span-5">
+                                <div class="text-5xl sm:text-[54px] font-black text-[#7E22CE] leading-none mt-1">
+                                    $50
+                                </div>
+                            </div>
+                            <div class="col-span-7 flex justify-end">
+                                <svg class="w-40 h-24 drop-shadow-sm" viewBox="0 0 160 95" fill="none">
+                                    <rect x="102" y="14" width="34" height="58" rx="3" fill="#1E293B" stroke="#475569" stroke-width="1.5"/>
+                                    <line x1="108" y1="22" x2="128" y2="22" stroke="#A855F7" stroke-width="2"/>
+                                    <polygon points="24,24 94,20 88,68 20,68" fill="#1E1B4B" stroke="#7E22CE" stroke-width="2"/>
+                                    <polygon points="27,28 90,24 85,64 24,64" fill="url(#laptopScreen3)"/>
+                                    <polygon points="6,74 20,68 88,68 96,74" fill="#CBD5E1"/>
+                                    <rect x="68" y="54" width="46" height="24" rx="4" fill="#F8FAFC" stroke="#64748B" stroke-width="1.8"/>
+                                    <rect x="76" y="68" width="30" height="14" rx="1" fill="#FFFFFF" stroke="#94A3B8" stroke-width="1.2"/>
+                                    <circle cx="138" cy="64" r="14" fill="#F1F5F9" stroke="#64748B" stroke-width="1.8"/>
+                                    <circle cx="138" cy="64" r="6" fill="#0F172A" stroke="#A855F7" stroke-width="1.5"/>
+                                    <defs>
+                                        <linearGradient id="laptopScreen3" x1="0" y1="0" x2="1" y2="1">
+                                            <stop offset="0%" stop-color="#C084FC"/>
+                                            <stop offset="100%" stop-color="#4C1D95"/>
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <p class="text-[13px] text-slate-700 font-medium leading-snug pb-3.5 border-b border-slate-200">
+                            Pensado para quienes necesitan varios servicios tecnológicos en una sola visita.
+                        </p>
+
+                        <div class="divide-y divide-slate-100 my-1">
+                            <div class="py-2.5 flex items-center gap-3.5">
+                                <div class="w-10 h-10 rounded-full bg-[#F3E8FF] text-[#7E22CE] flex items-center justify-center shrink-0">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                                        <rect x="3" y="4" width="18" height="12" rx="2"/>
+                                        <line x1="2" y1="19" x2="22" y2="19"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs sm:text-[13.5px] font-extrabold text-slate-900 leading-tight">Computadora o laptop</h4>
+                                    <p class="text-[11.5px] text-slate-600">Revisión, mantenimiento y optimización.</p>
+                                </div>
+                            </div>
+
+                            <div class="py-2.5 flex items-center gap-3.5">
+                                <div class="w-10 h-10 rounded-full bg-[#F3E8FF] text-[#7E22CE] flex items-center justify-center shrink-0">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                                        <path d="M6 9V3h12v6"/>
+                                        <rect x="3" y="9" width="18" height="8" rx="2"/>
+                                        <rect x="7" y="14" width="10" height="7" rx="1"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs sm:text-[13.5px] font-extrabold text-slate-900 leading-tight">Impresora</h4>
+                                    <p class="text-[11.5px] text-slate-600">Configuración, mantenimiento o instalación.</p>
+                                </div>
+                            </div>
+
+                            <div class="py-2.5 flex items-center gap-3.5">
+                                <div class="w-10 h-10 rounded-full bg-[#F3E8FF] text-[#7E22CE] flex items-center justify-center shrink-0">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                                        <rect x="3" y="6" width="18" height="14" rx="3"/>
+                                        <circle cx="12" cy="13" r="3.5"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs sm:text-[13.5px] font-extrabold text-slate-900 leading-tight">Cámara de seguridad</h4>
+                                    <p class="text-[11.5px] text-slate-600">Configuración o revisión.</p>
+                                </div>
+                            </div>
+
+                            <div class="py-2.5 flex items-center gap-3.5">
+                                <div class="w-10 h-10 rounded-full bg-[#F3E8FF] text-[#7E22CE] flex items-center justify-center shrink-0">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                                        <circle cx="12" cy="12" r="3"/>
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs sm:text-[13.5px] font-extrabold text-slate-900 leading-tight">Software</h4>
+                                    <p class="text-[11.5px] text-slate-600">Instalación y configuración de programas.</p>
+                                </div>
+                            </div>
+
+                            <div class="py-2.5 flex items-center gap-3.5">
+                                <div class="w-10 h-10 rounded-full bg-[#F3E8FF] text-[#7E22CE] flex items-center justify-center shrink-0">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                                        <rect x="5" y="3" width="14" height="18" rx="2"/>
+                                        <line x1="9" y1="8" x2="15" y2="8"/>
+                                        <line x1="9" y1="12" x2="15" y2="12"/>
+                                        <line x1="9" y1="16" x2="13" y2="16"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs sm:text-[13.5px] font-extrabold text-slate-900 leading-tight">Respaldo de información</h4>
+                                    <p class="text-[11.5px] text-slate-600">Copia de documentos, fotos y archivos importantes.</p>
+                                </div>
+                            </div>
+
+                            <div class="py-2.5 flex items-center gap-3.5">
+                                <div class="w-10 h-10 rounded-full bg-[#F3E8FF] text-[#7E22CE] flex items-center justify-center shrink-0">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs sm:text-[13.5px] font-extrabold text-slate-900 leading-tight">Soporte general</h4>
+                                    <p class="text-[11.5px] text-slate-600">Diagnóstico y solución de problemas.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-3 pt-2">
+                        <div class="bg-[#F3E8FF] rounded-2xl p-3.5 flex items-center gap-3.5 mb-5">
+                            <div class="w-9 h-9 rounded-full bg-white text-[#7E22CE] flex items-center justify-center shrink-0 shadow-sm">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"/>
+                                </svg>
+                            </div>
+                            <p class="text-xs font-bold text-[#3B0764] leading-snug">
+                                Ideal para clientes que necesitan varios servicios en un solo día.
+                            </p>
+                        </div>
+
+                        <a href="https://wa.me/593969016202?text=Hola%20SJA%20SOLUTIONS%2C%20deseo%20solicitar%20el%20paquete%20SJA%20HOME%20SMART%20(%2450%20-%20Hasta%203%20servicios%20en%201%20visita)%20a%20domicilio%20en%20Quito."
+                           target="_blank" rel="noopener noreferrer"
+                           class="w-full bg-gradient-to-r from-[#6B21A8] to-[#9333EA] hover:from-[#581C87] hover:to-[#7E22CE] text-white font-extrabold text-base py-3.5 px-6 rounded-2xl shadow-md transition-all flex items-center justify-center gap-2">
+                            <span>Solicitar</span>
+                            <span class="text-lg leading-none">&gt;</span>
+                        </a>
+                        <p class="text-center text-xs font-extrabold text-slate-800 mt-3 tracking-wide">
+                            SJA HOME SMART ($50)
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SECCIÓN DE DIAGNÓSTICO RÁPIDO CON VALIDACIÓN COHERENTE POR EQUIPO         -->
+    <!-- ========================================================================= -->
+    <section id="diagnostico" class="py-20 bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-4xl mx-auto mb-10">
+                <span class="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-[0.2em] text-white bg-gradient-to-r from-[#2563EB] to-[#9333EA] px-6 py-2 rounded-full shadow-md">
+                    HERRAMIENTA INTERACTIVA SJA SOLUTIONS
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-black mt-4 tracking-tight bg-gradient-to-r from-[#0A2D63] via-[#1E3A8A] to-[#6B21A8] bg-clip-text text-transparent">
+                    DIAGNÓSTICO RÁPIDO Y ORDEN DE VISITA
+                </h2>
+                <p class="text-slate-600 mt-3 font-medium text-sm sm:text-base max-w-3xl mx-auto leading-relaxed">
+                    Selecciona tu equipo o paquete, marca los síntomas que presenta y tu sector en Quito.<br class="hidden sm:inline">
+                    Te mostraremos la solución recomendada y generaremos tu solicitud lista para atención prioritaria.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-7 items-stretch">
+                
+                <!-- PANEL IZQUIERDO: PASOS 1, 2, 3 y 4 -->
+                <div class="lg:col-span-8 bg-[#F4F8FC] border border-slate-200/90 rounded-[28px] p-6 sm:p-8 shadow-card-premium flex flex-col justify-between space-y-7">
+                    
+                    <!-- PASO 1: ¿QUÉ EQUIPO O PAQUETE NECESITAS ATENDER? (5 Tarjetas con Ilustración) -->
+                    <div>
+                        <h3 class="text-sm sm:text-base font-black uppercase text-[#0A2D63]">
+                            1. ¿QUÉ EQUIPO O PAQUETE NECESITAS ATENDER?
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-600 font-medium mb-4">
+                            Elige el equipo o servicio principal para mostrar sus opciones específicas.
+                        </p>
+
+                        <div id="diag-equip-grid" class="grid grid-cols-2 sm:grid-cols-5 gap-3">
+                            <!-- Equipo 1: Computadora o Laptop -->
+                            <button type="button" data-equip="laptop" class="equip-card relative bg-[#E6F4FE] border-2 border-[#00A8FF] rounded-2xl p-3.5 flex flex-col items-center text-center transition-all shadow-sm">
+                                <span class="equip-check absolute top-2 right-2 w-5 h-5 rounded-full bg-[#00A8FF] text-white flex items-center justify-center text-xs font-black">✓</span>
+                                <div class="h-14 flex items-center justify-center mb-2">
+                                    <svg class="w-16 h-12" viewBox="0 0 80 55" fill="none">
+                                        <rect x="14" y="6" width="52" height="34" rx="3" fill="#0A2D63" stroke="#1E293B" stroke-width="2"/>
+                                        <rect x="17" y="9" width="46" height="28" fill="#00C2FF"/>
+                                        <polygon points="6,44 14,40 66,40 74,44" fill="#94A3B8"/>
+                                        <rect x="6" y="44" width="68" height="3" rx="1.5" fill="#475569"/>
+                                    </svg>
+                                </div>
+                                <span class="text-xs font-extrabold text-[#0A2D63] leading-tight">Computadora<br>o Laptop</span>
+                            </button>
+
+                            <!-- Equipo 2: Computadora de Escritorio -->
+                            <button type="button" data-equip="escritorio" class="equip-card relative bg-white hover:bg-[#F8FAFC] border-2 border-slate-200/90 rounded-2xl p-3.5 flex flex-col items-center text-center transition-all">
+                                <span class="equip-check hidden absolute top-2 right-2 w-5 h-5 rounded-full bg-[#00A8FF] text-white items-center justify-center text-xs font-black">✓</span>
+                                <div class="h-14 flex items-center justify-center mb-2">
+                                    <svg class="w-16 h-12" viewBox="0 0 85 55" fill="none">
+                                        <rect x="8" y="8" width="44" height="30" rx="2.5" fill="#0A2D63" stroke="#1E293B" stroke-width="2"/>
+                                        <rect x="11" y="11" width="38" height="24" fill="#00A8FF"/>
+                                        <rect x="26" y="38" width="8" height="6" fill="#64748B"/>
+                                        <rect x="18" y="44" width="24" height="3" rx="1" fill="#475569"/>
+                                        <rect x="56" y="6" width="20" height="41" rx="2.5" fill="#1E293B"/>
+                                        <circle cx="66" cy="14" r="2" fill="#00C2FF"/>
+                                        <rect x="60" y="20" width="12" height="2" fill="#64748B"/>
+                                    </svg>
+                                </div>
+                                <span class="text-xs font-extrabold text-[#0A2D63] leading-tight">Computadora<br>de Escritorio</span>
+                            </button>
+
+                            <!-- Equipo 3: Impresora -->
+                            <button type="button" data-equip="impresora" class="equip-card relative bg-white hover:bg-[#F8FAFC] border-2 border-slate-200/90 rounded-2xl p-3.5 flex flex-col items-center text-center transition-all">
+                                <span class="equip-check hidden absolute top-2 right-2 w-5 h-5 rounded-full bg-[#00A8FF] text-white items-center justify-center text-xs font-black">✓</span>
+                                <div class="h-14 flex items-center justify-center mb-2">
+                                    <svg class="w-16 h-12" viewBox="0 0 80 55" fill="none">
+                                        <rect x="22" y="6" width="36" height="12" fill="#CBD5E1" stroke="#475569" stroke-width="1.5"/>
+                                        <rect x="12" y="16" width="56" height="24" rx="4" fill="#1E293B"/>
+                                        <rect x="18" y="22" width="14" height="4" rx="1" fill="#38BDF8"/>
+                                        <rect x="22" y="34" width="36" height="14" fill="#FFFFFF" stroke="#94A3B8" stroke-width="1.5"/>
+                                        <line x1="27" y1="40" x2="53" y2="40" stroke="#0A2D63" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <span class="text-xs font-extrabold text-[#0A2D63] leading-tight">Impresora</span>
+                            </button>
+
+                            <!-- Equipo 4: Cámaras WiFi -->
+                            <button type="button" data-equip="camaras" class="equip-card relative bg-white hover:bg-[#F8FAFC] border-2 border-slate-200/90 rounded-2xl p-3.5 flex flex-col items-center text-center transition-all">
+                                <span class="equip-check hidden absolute top-2 right-2 w-5 h-5 rounded-full bg-[#00A8FF] text-white items-center justify-center text-xs font-black">✓</span>
+                                <div class="h-14 flex items-center justify-center mb-2">
+                                    <svg class="w-16 h-12" viewBox="0 0 80 55" fill="none">
+                                        <rect x="10" y="26" width="6" height="18" rx="2" fill="#475569"/>
+                                        <path d="M16 35 H28 L34 26" stroke="#64748B" stroke-width="4" stroke-linecap="round"/>
+                                        <g transform="rotate(10 45 24)">
+                                            <rect x="24" y="12" width="42" height="20" rx="8" fill="#E2E8F0" stroke="#1E293B" stroke-width="2"/>
+                                            <circle cx="58" cy="22" r="7" fill="#0F172A" stroke="#00C2FF" stroke-width="1.8"/>
+                                            <circle cx="58" cy="22" r="2.5" fill="#00C2FF"/>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <span class="text-xs font-extrabold text-[#0A2D63] leading-tight">Cámaras<br>WiFi</span>
+                            </button>
+
+                            <!-- Equipo 5: Soporte Negocios -->
+                            <button type="button" data-equip="negocios" class="equip-card col-span-2 sm:col-span-1 relative bg-white hover:bg-[#F8FAFC] border-2 border-slate-200/90 rounded-2xl p-3.5 flex flex-col items-center text-center transition-all">
+                                <span class="equip-check hidden absolute top-2 right-2 w-5 h-5 rounded-full bg-[#00A8FF] text-white items-center justify-center text-xs font-black">✓</span>
+                                <div class="h-14 flex items-center justify-center mb-2">
+                                    <svg class="w-14 h-12" viewBox="0 0 64 55" fill="none">
+                                        <circle cx="32" cy="27" r="14" stroke="#0A2D63" stroke-width="6" stroke-dasharray="10 4"/>
+                                        <circle cx="32" cy="27" r="8" fill="#E0F2FE"/>
+                                        <path d="M24 35 L42 17 M36 15 L44 23" stroke="#00A8FF" stroke-width="4" stroke-linecap="round"/>
+                                    </svg>
+                                </div>
+                                <span class="text-xs font-extrabold text-[#0A2D63] leading-tight">Soporte<br>Negocios</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- PASO 2: SELECCIONA EL PROBLEMA O SERVICIO QUE NECESITAS (Se actualiza dinámicamente según el equipo) -->
+                    <div>
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+                            <h3 class="text-sm sm:text-base font-black uppercase text-[#0A2D63]">
+                                2. SELECCIONA EL PROBLEMA O SERVICIO QUE NECESITAS
+                            </h3>
+                            <span id="step2-category-pill" class="text-[11px] font-extrabold bg-[#DDF2FD] text-[#0051A8] px-3 py-0.5 rounded-full">
+                                Opciones para: Computadora o Laptop
+                            </span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-600 font-medium mb-4">
+                            Marca la opción que mejor describa tu necesidad.
+                        </p>
+
+                        <!-- Contenedor dinámico de las 6 tarjetas coherentes con cada categoría -->
+                        <div id="diag-service-grid" class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <!-- Renderizado dinámicamente por JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- PASOS 3 Y 4: TU SECTOR EN QUITO Y TIPO DE ATENCIÓN -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div>
+                            <label for="diag-sector" class="block text-xs sm:text-sm font-black uppercase text-[#0A2D63] mb-2">
+                                3. TU SECTOR EN QUITO
+                            </label>
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-3.5 flex items-center pointer-events-none text-[#6B21A8]">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                    </svg>
+                                </span>
+                                <select id="diag-sector" class="w-full bg-white border border-slate-200 focus:border-[#00A8FF] rounded-2xl pl-11 pr-4 py-3.5 text-xs sm:text-sm font-bold text-slate-800 shadow-sm focus:outline-none">
+                                    <option value="Norte de Quito (Iñaquito, El Batán...)">Norte de Quito (Iñaquito, El Batán...)</option>
+                                    <option value="Centro-Norte (La Carolina, Colón...)">Centro-Norte (La Carolina, Colón...)</option>
+                                    <option value="Sur de Quito (Villaflora, Recreo...)">Sur de Quito (Villaflora, Recreo...)</option>
+                                    <option value="Valle de Cumbayá / Tumbaco">Valle de Cumbayá / Tumbaco</option>
+                                    <option value="Valle de los Chillos">Valle de los Chillos</option>
+                                    <option value="Calderón / Pomasqui / Mitad del Mundo">Calderón / Pomasqui / Mitad del Mundo</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="diag-client-type" class="block text-xs sm:text-sm font-black uppercase text-[#0A2D63] mb-2">
+                                4. TIPO DE ATENCIÓN
+                            </label>
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-3.5 flex items-center pointer-events-none text-[#6B21A8]">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                                    </svg>
+                                </span>
+                                <select id="diag-client-type" class="w-full bg-white border border-slate-200 focus:border-[#00A8FF] rounded-2xl pl-11 pr-4 py-3.5 text-xs sm:text-sm font-bold text-slate-800 shadow-sm focus:outline-none">
+                                    <option value="Hogar">Para mi Hogar</option>
+                                    <option value="Pequeño Negocio / Local">Para Pequeño Negocio / Local</option>
+                                    <option value="Oficina / Empresa">Para Oficina / Empresa</option>
+                                    <option value="Estudiante / Teletrabajo">Estudiante / Teletrabajo</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Barra inferior informativa con ícono 'i' e ilustración de laptop con herramientas -->
+                    <div class="bg-[#E6F2FA] rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4 border border-[#00A8FF]/20">
+                        <div class="flex items-center gap-3.5">
+                            <span class="w-8 h-8 rounded-full bg-[#0051A8] text-white font-black text-sm flex items-center justify-center shrink-0">
+                                i
+                            </span>
+                            <p class="text-xs sm:text-[13px] text-slate-700 font-medium leading-snug">
+                                Con esta información generaremos tu orden de visita y te contactaremos para confirmar fecha y horario.
+                            </p>
+                        </div>
+                        <svg class="w-28 h-16 shrink-0" viewBox="0 0 120 70" fill="none">
+                            <polygon points="35,10 105,6 98,52 30,52" fill="#0A2D63" stroke="#1E293B" stroke-width="2"/>
+                            <polygon points="38,14 101,10 95,48 33,48" fill="#0088FF"/>
+                            <circle cx="67" cy="29" r="7" stroke="#FFFFFF" stroke-width="2.5" stroke-dasharray="4 2"/>
+                            <polygon points="12,58 30,52 98,52 108,58" fill="#CBD5E1"/>
+                            <path d="M88 58 L112 34" stroke="#334155" stroke-width="3.5" stroke-linecap="round"/>
+                            <path d="M84 62 L95 51" stroke="#EF4444" stroke-width="6" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+
+                </div>
+
+                <!-- PANEL DERECHO: ORDEN PRELIMINAR / DIAGNÓSTICO TÉCNICO SJA -->
+                <div class="lg:col-span-4 sja-hero-bg rounded-[28px] p-6 sm:p-7 text-white shadow-2xl border-2 border-[#00C2FF]/40 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-start justify-between gap-2 mb-5">
+                            <div>
+                                <span class="text-xs font-extrabold uppercase tracking-wider text-[#00C2FF] block">
+                                    ORDEN PRELIMINAR
+                                </span>
+                                <h3 class="text-xl sm:text-2xl font-black text-white leading-tight mt-0.5">
+                                    Diagnóstico Técnico SJA
+                                </h3>
+                            </div>
+                            <span class="bg-gradient-to-r from-[#6B21A8] to-[#9333EA] text-white text-xs font-bold px-3.5 py-1.5 rounded-full flex items-center gap-1.5 shrink-0 shadow">
+                                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                                <span>A Domicilio</span>
+                            </span>
+                        </div>
+
+                        <div class="bg-white text-[#0A2D63] rounded-2xl p-5 shadow-lg space-y-4">
+                            <div>
+                                <span class="text-[11px] font-black uppercase tracking-wider text-[#0A2D63] block mb-3">
+                                    SERVICIO SELECCIONADO
+                                </span>
+
+                                <div class="bg-[#F4F8FC] rounded-2xl p-3.5 flex items-center gap-4 border border-slate-200/80">
+                                    <div id="summary-device-icon" class="w-20 h-16 flex items-center justify-center shrink-0">
+                                        <!-- Icono dinámico -->
+                                    </div>
+                                    <div>
+                                        <h4 id="summary-equip-title" class="text-sm sm:text-base font-black text-slate-900 leading-tight">
+                                            Computadora o Laptop
+                                        </h4>
+                                        <p id="summary-srv-title" class="text-xs sm:text-sm font-semibold text-slate-700 mt-0.5">
+                                            Mantenimiento completo
+                                        </p>
+                                        <span id="summary-badge" class="inline-flex items-center gap-1 bg-[#EDE9FE] text-[#6B21A8] text-[11px] font-extrabold px-2.5 py-0.5 rounded-full mt-1.5">
+                                            <span class="w-2 h-2 rounded-full bg-[#7E22CE]"></span>
+                                            <span>Recomendado • $35</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <span class="text-xs font-black uppercase tracking-wider text-[#0A2D63] block mb-2.5">
+                                    ¿QUÉ INCLUYE?
+                                </span>
+                                <ul id="summary-includes-list" class="space-y-2.5 text-xs sm:text-[13.5px] font-semibold text-slate-800">
+                                    <!-- Llenado dinámico por JS -->
+                                </ul>
+                            </div>
+
+                            <div class="bg-[#082554] text-white rounded-2xl p-4 flex items-start gap-3">
+                                <span class="text-amber-300 text-xl shrink-0 mt-0.5">💡</span>
+                                <div class="text-xs leading-relaxed">
+                                    <span class="font-black uppercase tracking-wider text-[#00C2FF] block">IDEAL PARA:</span>
+                                    <p id="summary-ideal-text" class="text-slate-100 font-medium mt-0.5">
+                                        Equipos lentos, con mucho polvo o que llevan tiempo sin mantenimiento.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-3 pt-2 border-t border-slate-200 text-xs">
+                                <div class="flex items-start gap-2">
+                                    <span class="text-[#0051A8] mt-0.5">📍</span>
+                                    <div>
+                                        <span class="font-extrabold text-slate-900 block">Ubicación</span>
+                                        <span id="summary-sector" class="text-[11px] text-slate-600 font-medium leading-tight block">
+                                            Norte de Quito (Iñaquito, El Batán...)
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-2 border-l border-slate-200 pl-3">
+                                    <span class="text-[#0A2D63] mt-0.5">🏠</span>
+                                    <div>
+                                        <span class="font-extrabold text-slate-900 block">Modalidad</span>
+                                        <span id="summary-type" class="text-[11px] text-slate-600 font-medium leading-tight block">
+                                            Servicio a Domicilio (Hogar)
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-5">
+                        <a id="diag-whatsapp-btn" 
+                           href="https://wa.me/593969016202" 
+                           target="_blank" rel="noopener noreferrer"
+                           class="w-full bg-gradient-to-r from-[#0099FF] to-[#00C2FF] hover:from-white hover:to-white text-white hover:text-[#051838] font-extrabold text-sm sm:text-[15px] py-4 px-5 rounded-2xl shadow-cyan-glow transition-all flex items-center justify-center gap-2.5">
+                            <svg class="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.126.556 4.124 1.529 5.859l-1.529 5.582 5.714-1.499c1.693.922 3.633 1.458 5.698 1.458 6.627 0 12-5.373 12-12s-5.385-11.4-11.412-11.4z"/>
+                            </svg>
+                            <span>Enviar Diagnóstico al 0969016202</span>
+                            <span class="text-lg leading-none">&gt;</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: SOLUCIONES TECNOLÓGICAS A TU ALCANCE -->
+    <section id="alcance" class="py-20 sja-hero-bg text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto space-y-5 mb-12">
+                <span class="inline-block bg-sja-cyan/20 border border-sja-cyan/40 text-sja-cyan text-xs font-extrabold px-4 py-1.5 rounded-full uppercase tracking-wider">
+                    ATENCIÓN PERSONALIZADA EN QUITO
+                </span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight">
+                    SOLUCIONES TECNOLÓGICAS <span class="text-sja-cyan">A TU ALCANCE</span>
+                </h2>
+                <p class="text-slate-200 text-base sm:text-lg leading-relaxed">
+                    Nos adaptamos al ritmo de cada cliente en Quito. Ya sea una laptop de estudio, la conexión e impresora familiar o el soporte completo para tu oficina o negocio.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl p-6 hover:border-sja-cyan transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="w-8 h-8 rounded-full bg-sja-cyan text-sja-dark font-black text-sm flex items-center justify-center shrink-0">✓</span>
+                            <h3 class="font-extrabold text-xl">Hogares</h3>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
+                            Mantenimiento de computadoras familiares, configuración de impresoras, instalación de programas, respaldo de fotos/documentos y cámaras de seguridad.
+                        </p>
+                    </div>
+                    <span class="inline-block mt-4 text-[11px] font-extrabold uppercase tracking-wider text-sja-cyan">Ideal con SJA HOME SMART ($50)</span>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl p-6 hover:border-sja-cyan transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="w-8 h-8 rounded-full bg-sja-cyan text-sja-dark font-black text-sm flex items-center justify-center shrink-0">✓</span>
+                            <h3 class="font-extrabold text-xl">Pequeños negocios</h3>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
+                            Equipos de punto de venta, impresoras de facturación, cámaras de seguridad conectadas a tu celular y mantenimiento sin interrumpir tus ventas.
+                        </p>
+                    </div>
+                    <span class="inline-block mt-4 text-[11px] font-extrabold uppercase tracking-wider text-sja-cyan">Atención Prioritaria</span>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl p-6 hover:border-sja-cyan transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="w-8 h-8 rounded-full bg-sja-cyan text-sja-dark font-black text-sm flex items-center justify-center shrink-0">✓</span>
+                            <h3 class="font-extrabold text-xl">Oficinas</h3>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
+                            Mantenimiento completo de estaciones de trabajo, limpieza interna de ventiladores, revisión de discos SSD/HDD y reporte técnico.
+                        </p>
+                    </div>
+                    <span class="inline-block mt-4 text-[11px] font-extrabold uppercase tracking-wider text-sja-cyan">Ideal con SJA HOME PLUS ($35)</span>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl p-6 hover:border-sja-cyan transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="w-8 h-8 rounded-full bg-sja-cyan text-sja-dark font-black text-sm flex items-center justify-center shrink-0">✓</span>
+                            <h3 class="font-extrabold text-xl">Estudiantes</h3>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
+                            Revisión preventiva de laptops, limpieza externa, optimización básica de programas y recomendaciones para mantener tu equipo estable.
+                        </p>
+                    </div>
+                    <span class="inline-block mt-4 text-[11px] font-extrabold uppercase tracking-wider text-sja-cyan">Ideal con SJA HOME ($20)</span>
+                </div>
+            </div>
+
+            <div class="mt-12 bg-white/10 backdrop-blur-md border border-sja-cyan/30 rounded-3xl p-6 sm:p-8 flex flex-col lg:flex-row items-center justify-between gap-6">
+                <div class="grid grid-cols-3 gap-6 text-center w-full lg:w-auto">
+                    <div>
+                        <p class="text-2xl sm:text-3xl font-black text-sja-cyan">100%</p>
+                        <p class="text-xs font-bold text-slate-200">A Domicilio en Quito</p>
+                    </div>
+                    <div>
+                        <p class="text-2xl sm:text-3xl font-black text-white">Norte a Sur</p>
+                        <p class="text-xs font-bold text-slate-200">Quito y Valles</p>
+                    </div>
+                    <div>
+                        <p class="text-2xl sm:text-3xl font-black text-sja-cyan">Garantía</p>
+                        <p class="text-xs font-bold text-slate-200">Soporte Confiable</p>
+                    </div>
+                </div>
+
+                <a href="https://wa.me/593969016202?text=Hola%20SJA%20SOLUTIONS%2C%20deseo%20solicitar%20asistencia%20t%C3%A9cnica%20a%20domicilio%20en%20Quito."
+                   target="_blank" rel="noopener noreferrer"
+                   style="background-color: #00C2FF; color: #051838;"
+                   class="w-full lg:w-auto bg-[#00C2FF] hover:bg-white text-[#051838] font-black text-sm sm:text-base px-8 py-4 rounded-2xl shadow-cyan-glow transition-all flex items-center justify-center gap-3">
+                    <span>Solicitar Visita al 0969016202</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE TARJETA DIGITAL INTERACTIVA Y CONTACTO DIRECTO (LADO A LADO) -->
+    <section id="contacto" class="py-20 bg-sja-light relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <span class="text-xs font-extrabold uppercase tracking-widest text-sja-navy bg-sja-cyan/25 px-3.5 py-1.5 rounded-full">
+                    CONTACTO OFICIAL SJA SOLUTIONS
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-black text-sja-navy mt-3">
+                    TARJETA DIGITAL Y AGENDAMIENTO
+                </h2>
+                <p class="text-slate-600 text-sm sm:text-base mt-2 font-medium">
+                    Guarda nuestro contacto oficial o agenda tu visita técnica a domicilio en cualquier sector de Quito.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                
+                <!-- COLUMNA IZQUIERDA: TARJETA DE PRESENTACIÓN OFICIAL INTERACTIVA (ANVERSO Y REVERSO) -->
+                <div class="lg:col-span-6 flex flex-col items-center">
+                    <div class="w-full max-w-md perspective-1000">
+                        <div id="business-card-3d" class="flip-card-inner relative w-full h-64 sm:h-72 cursor-pointer" onclick="flipBusinessCard()">
+                            
+                            <!-- ANVERSO DE LA TARJETA -->
+                            <div class="card-face-front bg-white rounded-3xl shadow-2xl border border-slate-200 p-7 flex flex-col justify-between brand-ribbon-corner">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-[10px] font-extrabold uppercase tracking-widest text-slate-400">TARJETA OFICIAL • CLIC PARA GIRAR</span>
+                                    <span class="w-2.5 h-2.5 rounded-full bg-sja-cyan"></span>
+                                </div>
+
+                                <div class="grid grid-cols-12 gap-4 items-center my-auto">
+                                    <div class="col-span-5 border-r border-slate-200 pr-3">
+                                        <div class="font-black text-3xl sm:text-4xl tracking-tight text-sja-navy">
+                                            S<span class="text-sja-cyan">J</span>A
+                                        </div>
+                                        <div class="font-extrabold text-[11px] tracking-[0.28em] text-sja-navy mt-0.5">
+                                            SOLUTIONS
+                                        </div>
+                                        <div class="text-[7px] font-bold tracking-widest text-slate-500 mt-1">
+                                            SOLUCIONES QUE CONECTAN
+                                        </div>
+                                    </div>
+
+                                    <div class="col-span-7 pl-2 space-y-2 text-xs font-bold text-sja-navy">
+                                        <div class="flex items-center gap-2">
+                                            <span class="w-5 h-5 rounded-full bg-sja-light flex items-center justify-center text-sja-cyan font-black text-[11px] shrink-0">✆</span>
+                                            <span>0969016202</span>
+                                        </div>
+                                        <div class="flex items-center gap-2">
+                                            <span class="w-5 h-5 rounded-full bg-sja-light flex items-center justify-center text-sja-purple font-black text-[11px] shrink-0">✉</span>
+                                            <span class="text-[10px] sm:text-[11px] break-all">sja.solutionss@gmail.com</span>
+                                        </div>
+                                        <div class="flex items-center gap-2">
+                                            <span class="w-5 h-5 rounded-full bg-sja-light flex items-center justify-center text-sja-purple font-black text-[11px] shrink-0">📍</span>
+                                            <span>Quito</span>
+                                        </div>
+                                        <div class="flex items-center gap-2">
+                                            <span class="w-5 h-5 rounded-full bg-sja-light flex items-center justify-center text-sja-navy font-black text-[11px] shrink-0">
+                                                <svg class="w-3 h-3 text-sja-navy" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
+                                            </span>
+                                            <span>SJA Solutions</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="text-[11px] font-bold text-sja-purple flex items-center gap-1.5">
+                                    <span>↻ Toca la tarjeta para ver el reverso</span>
+                                </div>
+                            </div>
+
+                            <!-- REVERSO DE LA TARJETA -->
+                            <div class="card-face-back sja-hero-bg rounded-3xl shadow-2xl border border-sja-cyan/40 p-7 flex flex-col items-center justify-center text-center brand-ribbon-corner">
+                                <div class="font-black text-5xl tracking-tight text-white">
+                                    S<span class="text-sja-cyan">J</span>A
+                                </div>
+                                <div class="font-extrabold text-sm tracking-[0.35em] text-white mt-1">
+                                    SOLUTIONS
+                                </div>
+                                <div class="text-[9px] font-semibold tracking-[0.22em] text-sja-cyan mt-1.5">
+                                    SOLUCIONES QUE CONECTAN
+                                </div>
+                                <span class="mt-6 text-[11px] text-slate-300 font-semibold">↻ Toca para volver a los datos</span>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap items-center justify-center gap-3 mt-6">
+                        <button type="button" onclick="copyPhoneNumber()" class="bg-white hover:bg-sja-navy text-sja-navy hover:text-white border border-sja-navy/15 font-extrabold text-xs px-4 py-2.5 rounded-xl shadow-sm transition-all flex items-center gap-2">
+                            <span>📋 Copiar Teléfono (0969016202)</span>
+                        </button>
+                        <a href="mailto:sja.solutionss@gmail.com" class="bg-white hover:bg-sja-cyan text-sja-navy hover:text-sja-dark border border-sja-navy/15 font-extrabold text-xs px-4 py-2.5 rounded-xl shadow-sm transition-all flex items-center gap-2">
+                            <span>✉️ sja.solutionss@gmail.com</span>
+                        </a>
+                        <button type="button" onclick="flipBusinessCard()" class="bg-sja-purple/15 hover:bg-sja-purple text-sja-purple hover:text-white font-extrabold text-xs px-4 py-2.5 rounded-xl transition-all">
+                            <span>🔄 Girar Tarjeta</span>
+                        </button>
+                    </div>
+                    <p id="copy-feedback" class="text-xs font-extrabold text-emerald-600 mt-2 hidden">
+                        ¡Número 0969016202 copiado al portapapeles!
+                    </p>
+                </div>
+
+                <!-- COLUMNA DERECHA: FORMULARIO DIRECTO DE SOLICITUD A DOMICILIO -->
+                <div class="lg:col-span-6">
+                    <form id="contact-form" onsubmit="handleContactSubmit(event)" class="bg-white rounded-3xl p-7 sm:p-9 shadow-card-premium border border-sja-navy/10 space-y-5">
+                        <h3 class="text-2xl font-black text-sja-navy">
+                            Agenda tu Visita a Domicilio
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-600 font-medium">
+                            Completa tus datos y un especialista de SJA SOLUTIONS te contactará de inmediato para coordinar la visita en Quito.
+                        </p>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="client-name" class="block text-xs font-extrabold uppercase text-sja-navy mb-1.5">Tu Nombre *</label>
+                                <input type="text" id="client-name" required placeholder="Ej. Carlos Andrade" class="w-full bg-sja-light border border-slate-200 focus:border-sja-cyan rounded-xl px-4 py-3 text-sm font-semibold text-sja-navy focus:outline-none">
+                            </div>
+                            <div>
+                                <label for="client-phone" class="block text-xs font-extrabold uppercase text-sja-navy mb-1.5">Tu Celular / WhatsApp *</label>
+                                <input type="tel" id="client-phone" required placeholder="Ej. 099 876 5432" class="w-full bg-sja-light border border-slate-200 focus:border-sja-cyan rounded-xl px-4 py-3 text-sm font-semibold text-sja-navy focus:outline-none">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="client-service" class="block text-xs font-extrabold uppercase text-sja-navy mb-1.5">Servicio o Paquete Requerido *</label>
+                                <select id="client-service" class="w-full bg-sja-light border border-slate-200 focus:border-sja-cyan rounded-xl px-4 py-3 text-sm font-semibold text-sja-navy focus:outline-none">
+                                    <option value="SJA HOME ($20 - Revisión y mantenimiento básico)">SJA HOME ($20 - Mantenimiento básico)</option>
+                                    <option value="SJA HOME PLUS ($35 - Mantenimiento completo + Reporte)" selected>SJA HOME PLUS ($35 - El más completo)</option>
+                                    <option value="SJA HOME SMART ($50 - Hasta 3 servicios en 1 visita)">SJA HOME SMART ($50 - Hasta 3 servicios)</option>
+                                    <option value="Clonación + SSD (Migración de datos e instalación)">Clonación + SSD</option>
+                                    <option value="Reparación o Configuración de Impresora">Impresora no funciona / Configuración</option>
+                                    <option value="Instalación de Cámaras de Seguridad">Instalación de Cámaras WiFi</option>
+                                    <option value="Soporte para Oficina o Negocio">Soporte para Negocio / Oficina</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="client-zone" class="block text-xs font-extrabold uppercase text-sja-navy mb-1.5">Sector en Quito *</label>
+                                <input type="text" id="client-zone" required placeholder="Ej. La Carolina, Cumbayá, El Inca..." class="w-full bg-sja-light border border-slate-200 focus:border-sja-cyan rounded-xl px-4 py-3 text-sm font-semibold text-sja-navy focus:outline-none">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="client-notes" class="block text-xs font-extrabold uppercase text-sja-navy mb-1.5">Cuéntanos brevemente el problema</label>
+                            <textarea id="client-notes" rows="3" placeholder="Ej. Mi laptop demora mucho en encender y necesito instalar mi impresora..." class="w-full bg-sja-light border border-slate-200 focus:border-sja-cyan rounded-xl px-4 py-3 text-sm font-semibold text-sja-navy focus:outline-none"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-sja-navy hover:bg-sja-cyan text-white hover:text-sja-dark font-black text-sm sm:text-base py-4 px-6 rounded-2xl shadow-lg transition-all flex items-center justify-center gap-2">
+                            <span>Solicitar Visita Técnica por WhatsApp</span>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER CORPORATIVO -->
+    <footer class="bg-sja-dark text-white pt-16 pb-12 border-t border-white/10" style="background-color: #051838; color: #FFFFFF;">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
+                
+                <div class="space-y-4">
+                    <div class="inline-block">
+                        <svg class="h-14 w-auto overflow-visible" viewBox="0 0 320 115" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22 72 C12 42, 115 4, 182 8 C202 10, 192 34, 162 54" stroke="#00C2FF" stroke-width="5" stroke-linecap="round" fill="none"/>
+                            <path d="M108 25 H58 C42 25, 36 34, 36 42 C36 51, 43 56, 58 56 H88 C94 56, 97 59, 97 62 C97 66, 93 68, 86 68 H38 L33 79 H88 C106 79, 114 71, 114 61 C114 50, 106 45, 89 45 H60 C54 45, 52 43, 52 40 C52 37, 55 35, 61 35 H104 L108 25 Z" fill="#FFFFFF"/>
+                            <path d="M148 25 H167 L154 60 C149 74, 138 80, 121 80 H112 L117 67 H123 C131 67, 135 64, 138 56 L148 25 Z" fill="#00C2FF"/>
+                            <path d="M206 23 L164 79 H183 L206 47 L229 79 H248 L206 23 Z" fill="#FFFFFF"/>
+                            <polygon points="206,56 194,75 218,75" fill="#FFFFFF"/>
+                            <rect class="sja-p1" x="234" y="16" width="9" height="9" rx="1.5" fill="#A855F7"/>
+                            <rect class="sja-p2" x="247" y="6" width="8" height="8" rx="1.5" fill="#A855F7"/>
+                            <rect class="sja-p3" x="259" y="17" width="10" height="10" rx="1.5" fill="#A855F7"/>
+                            <rect class="sja-p4" x="245" y="25" width="9" height="9" rx="1.5" fill="#00C2FF"/>
+                            <rect class="sja-spark-1" x="270" y="10" width="6" height="6" rx="1" fill="#00C2FF"/>
+                            <text x="142" y="98" text-anchor="middle" fill="#FFFFFF" font-family="Montserrat, sans-serif" font-weight="800" font-size="18" letter-spacing="6.5">SOLUTIONS</text>
+                            <text x="142" y="112" text-anchor="middle" fill="#00C2FF" font-family="Montserrat, sans-serif" font-weight="600" font-size="8.2" letter-spacing="2.6">SOLUCIONES QUE CONECTAN</text>
+                        </svg>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Soluciones que conectan. Soporte tecnológico profesional a domicilio en Quito para tu hogar, oficina y negocio.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-extrabold text-sm uppercase tracking-wider text-sja-cyan mb-4">Nuestros Paquetes y Servicios</h4>
+                    <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300 font-medium">
+                        <li><a href="#paquetes" class="hover:text-sja-cyan transition-colors">SJA HOME ($20 - Revisión y mantenimiento básico)</a></li>
+                        <li><a href="#paquetes" class="hover:text-sja-cyan transition-colors">SJA HOME PLUS ($35 - El más completo)</a></li>
+                        <li><a href="#paquetes" class="hover:text-sja-cyan transition-colors">SJA HOME SMART ($50 - Hasta 3 servicios en 1 visita)</a></li>
+                        <li><a href="#servicios" class="hover:text-sja-cyan transition-colors">Configuración y Mantenimiento de Impresoras</a></li>
+                        <li><a href="#servicios" class="hover:text-sja-cyan transition-colors">Cámaras de Seguridad WiFi</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-extrabold text-sm uppercase tracking-wider text-sja-cyan mb-4">Cobertura a Domicilio</h4>
+                    <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300 font-medium">
+                        <li>📍 Norte y Centro-Norte de Quito</li>
+                        <li>📍 Sur de Quito</li>
+                        <li>📍 Valle de Cumbayá y Tumbaco</li>
+                        <li>📍 Valle de los Chillos</li>
+                        <li>📍 Calderón, Pomasqui y Mitad del Mundo</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-extrabold text-sm uppercase tracking-wider text-sja-cyan mb-4">Contacto Directo</h4>
+                    <div class="space-y-3 text-xs sm:text-sm text-slate-200">
+                        <p class="font-extrabold text-base text-white flex items-center gap-2">
+                            <span class="text-sja-cyan">✆</span> 0969016202
+                        </p>
+                        <p class="flex items-center gap-2">
+                            <span class="text-sja-cyan">✉</span>
+                            <a href="mailto:sja.solutionss@gmail.com" class="hover:text-sja-cyan transition-colors break-all">sja.solutionss@gmail.com</a>
+                        </p>
+                        <p class="flex items-center gap-2">
+                            <span class="text-sja-purple">📍</span> Quito, Ecuador (Servicio a domicilio)
+                        </p>
+                        <p class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-sja-cyan shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
+                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="hover:text-sja-cyan transition-colors">Facebook: SJA Solutions</a>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
+                <p>© 2026 <strong>SJA SOLUTIONS</strong> — Soluciones que conectan. Todos los derechos reservados.</p>
+                <div class="flex items-center gap-3">
+                    <span class="w-3 h-3 rounded-full bg-[#0A2D63] border border-white/30" title="#0A2D63 Confianza"></span>
+                    <span class="w-3 h-3 rounded-full bg-[#00C2FF]" title="#00C2FF Innovación"></span>
+                    <span class="w-3 h-3 rounded-full bg-[#A855F7]" title="#A855F7 Modernidad"></span>
+                    <span class="w-3 h-3 rounded-full bg-[#F2F7FF]" title="#F2F7FF Claridad"></span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BOTÓN FLOTANTE DE WHATSAPP SIEMPRE VISIBLE -->
+    <a href="https://wa.me/593969016202?text=Hola%20SJA%20SOLUTIONS%2C%20necesito%20informaci%C3%B3n%20sobre%20su%20servicio%20t%C3%A9cnico%20a%20domicilio%20en%20Quito."
+       target="_blank" rel="noopener noreferrer"
+       aria-label="Contactar por WhatsApp al 0969016202"
+       class="fixed bottom-5 right-5 z-50 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-sja-cyan hover:to-blue-500 text-white hover:text-sja-dark font-extrabold px-4 py-3.5 rounded-full shadow-2xl flex items-center gap-2.5 transition-all duration-300 hover:scale-105 group border-2 border-white/30">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.126.556 4.124 1.529 5.859l-1.529 5.582 5.714-1.499c1.693.922 3.633 1.458 5.698 1.458 6.627 0 12-5.373 12-12s-5.385-11.4-11.412-11.4z"/>
+        </svg>
+        <span class="hidden sm:inline text-xs sm:text-sm">0969016202</span>
+    </a>
+
+    <!-- SCRIPTS INTERACTIVOS CON VALIDACIÓN COHERENTE POR EQUIPO -->
+    <script>
+        // Biblioteca de iconos SVG para las tarjetas del Paso 2
+        const cardIcons = {
+            gear: `<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>`,
+            brush: `<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 4l5 5L8 21H3v-5L15 4z"/></svg>`,
+            bolt: `<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>`,
+            ssd: `<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><line x1="9" y1="17" x2="15" y2="17"/></svg>`,
+            shield: `<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>`,
+            printer: `<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><rect x="7" y="14" width="10" height="7" rx="1"/></svg>`,
+            cam: `<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="3"/><circle cx="12" cy="13" r="3.5"/></svg>`,
+            phone: `<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>`,
+            smart: `<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>`
+        };
+
+        // Base de datos completa con servicios específicos y coherentes para cada equipo del Paso 1
+        const equipmentCatalog = {
+            laptop: {
+                title: "Computadora o Laptop",
+                svg: `<svg class="w-20 h-14" viewBox="0 0 90 62" fill="none">
+                        <polygon points="20,8 82,5 76,46 16,46" fill="#0A2D63" stroke="#1E293B" stroke-width="2"/>
+                        <polygon points="23,11 78,8 73,43 19,43" fill="#0088FF"/>
+                        <polygon points="4,52 16,46 76,46 84,52" fill="#94A3B8"/>
+                        <rect x="4" y="52" width="80" height="3" rx="1.5" fill="#475569"/>
+                      </svg>`,
+                services: [
+                    {
+                        key: "mantenimiento",
+                        title: "Mantenimiento<br>completo",
+                        desc: "Limpieza interna, revisión y optimización.",
+                        icon: "gear",
+                        theme: "blue",
+                        badge: "Recomendado • SJA HOME PLUS ($35)",
+                        includes: ["Limpieza interna", "Revisión de componentes", "Optimización del sistema", "Reporte técnico"],
+                        ideal: "Equipos lentos, con mucho polvo o que llevan tiempo sin mantenimiento."
+                    },
+                    {
+                        key: "revision",
+                        title: "Revisión general",
+                        desc: "Diagnóstico y funcionamiento básico.",
+                        icon: "gear",
+                        theme: "purple",
+                        badge: "SJA HOME ($20)",
+                        includes: ["Verificación de hardware y software", "Limpieza externa de teclado y puertos", "Optimización básica del sistema", "Recomendaciones con estado del equipo"],
+                        ideal: "Un equipo en buen estado que necesita una revisión preventiva para mantenerse estable y seguro."
+                    },
+                    {
+                        key: "limpieza",
+                        title: "Limpieza externa",
+                        desc: "Teclado, pantalla y carcasa.",
+                        icon: "brush",
+                        theme: "blue",
+                        badge: "Incluido en SJA HOME ($20)",
+                        includes: ["Limpieza de teclado, pantalla y puertos", "Limpieza exterior de carcasa", "Revisión general de funcionamiento", "Informe con estado del equipo"],
+                        ideal: "Mantener tu laptop limpia, libre de polvo exterior y funcionando de forma segura."
+                    },
+                    {
+                        key: "optimizacion",
+                        title: "Optimización<br>del sistema",
+                        desc: "Mejor rendimiento y velocidad.",
+                        icon: "bolt",
+                        theme: "blue",
+                        badge: "SJA HOME ($20) / PLUS ($35)",
+                        includes: ["Ajustes avanzados para mejor rendimiento", "Configuración e instalación de programas", "Limpieza de procesos innecesarios", "Pruebas de velocidad y estabilidad"],
+                        ideal: "Laptops que demoran en encender o se ponen lentas al abrir programas de estudio o trabajo."
+                    },
+                    {
+                        key: "ssd",
+                        title: "Clonación + SSD",
+                        desc: "Migración de datos e instalación.",
+                        icon: "ssd",
+                        theme: "blue",
+                        badge: "Upgrade de Velocidad SSD",
+                        includes: ["Instalación de disco sólido SSD nuevo", "Clonación íntegra sin perder tus archivos", "Conservación de programas y licencias", "Pruebas de arranque ultrarrápido"],
+                        ideal: "Laptops con disco mecánico antiguo que necesitan multiplicar su velocidad sin perder información."
+                    },
+                    {
+                        key: "fallas",
+                        title: "Solución de fallas",
+                        desc: "Problemas de software o hardware.",
+                        icon: "shield",
+                        theme: "blue",
+                        badge: "Diagnóstico Especializado",
+                        includes: ["Diagnóstico preciso de la falla", "Solución de errores de Windows o programas", "Revisión de memoria RAM y disco", "Pruebas completas de funcionamiento"],
+                        ideal: "Equipos que presentan errores constantes, pantallazos o problemas al iniciar."
+                    }
+                ]
+            },
+
+            escritorio: {
+                title: "Computadora de Escritorio",
+                svg: `<svg class="w-20 h-14" viewBox="0 0 85 55" fill="none">
+                        <rect x="8" y="8" width="44" height="30" rx="2.5" fill="#0A2D63" stroke="#1E293B" stroke-width="2"/>
+                        <rect x="11" y="11" width="38" height="24" fill="#00A8FF"/>
+                        <rect x="26" y="38" width="8" height="6" fill="#64748B"/>
+                        <rect x="18" y="44" width="24" height="3" rx="1" fill="#475569"/>
+                        <rect x="56" y="6" width="20" height="41" rx="2.5" fill="#1E293B"/>
+                        <circle cx="66" cy="14" r="2" fill="#00C2FF"/>
+                      </svg>`,
+                services: [
+                    {
+                        key: "mantenimiento_pc",
+                        title: "Mantenimiento<br>completo CPU",
+                        desc: "Limpieza interna de torre y ventiladores.",
+                        icon: "gear",
+                        theme: "blue",
+                        badge: "Recomendado • SJA HOME PLUS ($35)",
+                        includes: ["Limpieza interna de gabinete y componentes", "Mantenimiento de ventiladores y disipación", "Revisión de memoria RAM y disco", "Reporte técnico del servicio"],
+                        ideal: "Computadoras de escritorio con polvo acumulado, ruido en ventiladores o lentitud."
+                    },
+                    {
+                        key: "revision_pc",
+                        title: "Revisión general",
+                        desc: "Verificación de hardware y software.",
+                        icon: "gear",
+                        theme: "purple",
+                        badge: "SJA HOME ($20)",
+                        includes: ["Verificación de encendido, monitor y puertos", "Limpieza externa de periféricos y torre", "Optimización básica del sistema", "Recomendaciones de cuidado"],
+                        ideal: "PCs de hogar o estudio que requieren una revisión preventiva periódica."
+                    },
+                    {
+                        key: "limpieza_pc",
+                        title: "Limpieza externa<br>y periféricos",
+                        desc: "Monitor, teclado, mouse y puertos.",
+                        icon: "brush",
+                        theme: "blue",
+                        badge: "Incluido en SJA HOME ($20)",
+                        includes: ["Limpieza de monitor, teclado y carcasa", "Revisión de cables y conectores USB", "Verificación de audio y video", "Pruebas de estabilidad"],
+                        ideal: "Mantener tu estación de escritorio limpia, ordenada y funcionando sin fallos."
+                    },
+                    {
+                        key: "optimizacion_pc",
+                        title: "Optimización y<br>Programas",
+                        desc: "Ajustes avanzados e instalación de software.",
+                        icon: "bolt",
+                        theme: "blue",
+                        badge: "SJA HOME PLUS ($35)",
+                        includes: ["Optimización avanzada de Windows", "Instalación y configuración de programas", "Eliminación de procesos pesados", "Reporte técnico de rendimiento"],
+                        ideal: "PCs de trabajo o estudio que necesitan máxima fluidez al usar varios programas."
+                    },
+                    {
+                        key: "ssd_pc",
+                        title: "Clonación + SSD",
+                        desc: "Migración de sistema a disco sólido.",
+                        icon: "ssd",
+                        theme: "blue",
+                        badge: "Upgrade de Velocidad SSD",
+                        includes: ["Instalación de unidad SSD en gabinete", "Clonación íntegra sin perder datos", "Configuración de disco principal y secundario", "Pruebas de arranque inmediato"],
+                        ideal: "Computadoras de escritorio lentas que desean conservar todos sus archivos y programas."
+                    },
+                    {
+                        key: "fallas_pc",
+                        title: "Solución de fallas",
+                        desc: "No da video, reinicios o errores.",
+                        icon: "shield",
+                        theme: "blue",
+                        badge: "Diagnóstico en Domicilio",
+                        includes: ["Diagnóstico de fuente, RAM y almacenamiento", "Reparación de arranque del sistema", "Configuración de controladores", "Pruebas finales de estabilidad"],
+                        ideal: "PCs de escritorio que no encienden bien, se congelan o muestran errores."
+                    }
+                ]
+            },
+
+            impresora: {
+                title: "Impresora",
+                svg: `<svg class="w-20 h-14" viewBox="0 0 80 55" fill="none">
+                        <rect x="22" y="6" width="36" height="12" fill="#CBD5E1" stroke="#475569" stroke-width="1.5"/>
+                        <rect x="12" y="16" width="56" height="24" rx="4" fill="#1E293B"/>
+                        <rect x="18" y="22" width="14" height="4" rx="1" fill="#38BDF8"/>
+                        <rect x="22" y="34" width="36" height="14" fill="#FFFFFF" stroke="#94A3B8" stroke-width="1.5"/>
+                        <line x1="27" y1="40" x2="53" y2="40" stroke="#0A2D63" stroke-width="2"/>
+                      </svg>`,
+                services: [
+                    {
+                        key: "config_imp",
+                        title: "Configuración e<br>instalación",
+                        desc: "Drivers, escáner y conexión con tu PC.",
+                        icon: "printer",
+                        theme: "blue",
+                        badge: "Servicio a Domicilio",
+                        includes: ["Instalación de drivers oficiales y escáner", "Vinculación con tu computadora o laptop", "Configuración de calidad de impresión", "Pruebas de impresión y escaneo"],
+                        ideal: "Impresoras nuevas o que dejaron de ser reconocidas por tu computadora."
+                    },
+                    {
+                        key: "wifi_imp",
+                        title: "Impresión WiFi y<br>desde celular",
+                        desc: "Imprime sin cables desde varios equipos.",
+                        icon: "phone",
+                        theme: "purple",
+                        badge: "Conexión Inalámbrica",
+                        includes: ["Configuración de impresora en red local", "Vinculación para imprimir desde celulares", "Conexión en varias laptops del hogar/oficina", "Pruebas de envío inalámbrico"],
+                        ideal: "Imprimir cómodamente desde cualquier laptop o celular sin conectar cables USB."
+                    },
+                    {
+                        key: "mant_imp",
+                        title: "Mantenimiento y<br>cabezales",
+                        desc: "Rallas en hojas, manchas o falta de color.",
+                        icon: "brush",
+                        theme: "blue",
+                        badge: "Mantenimiento de Impresora",
+                        includes: ["Limpieza y alineación de cabezales", "Limpieza de rodillos y paso de papel", "Revisión de niveles y sistema de tinta", "Test de inyectores a color y negro"],
+                        ideal: "Impresoras que imprimen entrecortado, con rayas blancas o colores borrosos."
+                    },
+                    {
+                        key: "atasco_imp",
+                        title: "Atasco de papel<br>o errores",
+                        desc: "No jala hojas o luces parpadeando.",
+                        icon: "Gear",
+                        theme: "blue",
+                        badge: "Solución de Fallas",
+                        includes: ["Retiro seguro de papel u objetos atascados", "Limpieza y ajuste de gomas de arrastre", "Diagnóstico de sensores de papel", "Pruebas continuas de impresión"],
+                        ideal: "Impresoras que traban las hojas a mitad de camino o marcan error de atasco."
+                    },
+                    {
+                        key: "almohadillas_imp",
+                        title: "Reseteo de<br>almohadillas",
+                        desc: "Desbloqueo por fin de vida útil.",
+                        icon: "bolt",
+                        theme: "blue",
+                        badge: "Desbloqueo Técnico",
+                        includes: ["Reseteo de contador de almohadillas", "Desbloqueo de luces rojas parpadeantes", "Revisión general del equipo", "Pruebas de funcionamiento inmediato"],
+                        ideal: "Impresoras Epson/Canon bloqueadas con mensaje de almohadillas llenas."
+                    },
+                    {
+                        key: "combo_imp",
+                        title: "Paquete SJA<br>HOME SMART",
+                        desc: "Impresora + Laptop + 1 servicio adicional.",
+                        icon: "smart",
+                        theme: "purple",
+                        badge: "Recomendado • SJA HOME SMART ($50)",
+                        includes: ["Configuración o mantenimiento de impresora", "Mantenimiento y optimización de tu laptop", "Tercer servicio a elección (Software/Respaldo)", "Pruebas finales de los 3 servicios"],
+                        ideal: "Aprovechar una sola visita para dejar lista tu impresora y tu computadora el mismo día."
+                    }
+                ]
+            },
+
+            camaras: {
+                title: "Cámaras WiFi",
+                svg: `<svg class="w-20 h-14" viewBox="0 0 80 55" fill="none">
+                        <rect x="10" y="26" width="6" height="18" rx="2" fill="#475569"/>
+                        <path d="M16 35 H28 L34 26" stroke="#64748B" stroke-width="4" stroke-linecap="round"/>
+                        <g transform="rotate(10 45 24)">
+                            <rect x="24" y="12" width="42" height="20" rx="8" fill="#E2E8F0" stroke="#1E293B" stroke-width="2"/>
+                            <circle cx="58" cy="22" r="7" fill="#0F172A" stroke="#00C2FF" stroke-width="1.8"/>
+                            <circle cx="58" cy="22" r="2.5" fill="#00C2FF"/>
+                        </g>
+                      </svg>`,
+                services: [
+                    {
+                        key: "inst_cam",
+                        title: "Instalación de<br>cámara WiFi",
+                        desc: "Montaje estético y configuración inicial.",
+                        icon: "cam",
+                        theme: "blue",
+                        badge: "Instalación a Domicilio",
+                        includes: ["Fijación e instalación en interior o exterior", "Conexión a tu red WiFi y energía", "Vinculación directa en tu celular", "Pruebas de ángulo, audio y visión nocturna"],
+                        ideal: "Instalar cámaras nuevas en casa, departamento o negocio de forma limpia y segura."
+                    },
+                    {
+                        key: "app_cam",
+                        title: "Vinculación con<br>tu celular",
+                        desc: "Monitoreo en vivo 24/7 en uno o más móviles.",
+                        icon: "phone",
+                        theme: "purple",
+                        badge: "Configuración en Sitio",
+                        includes: ["Instalación y configuración de App móvil", "Acceso compartido para familiares o socios", "Activación de alertas de movimiento", "Pruebas de visualización en tiempo real"],
+                        ideal: "Ver tus cámaras desde tu celular en cualquier lugar o agregar nuevos teléfonos."
+                    },
+                    {
+                        key: "config_cam",
+                        title: "Configuración y<br>grabación",
+                        desc: "Ajuste de memoria MicroSD y detección.",
+                        icon: "gear",
+                        theme: "blue",
+                        badge: "Puesta a Punto",
+                        includes: ["Configuración de grabación continua o por eventos", "Revisión y formateo de memoria MicroSD", "Ajuste de zonas de detección y alarmas", "Verificación de historial de grabaciones"],
+                        ideal: "Cámaras que ya están puestas pero no están guardando las grabaciones correctamente."
+                    },
+                    {
+                        key: "rev_cam",
+                        title: "Cámara sin<br>conexión / Offline",
+                        desc: "Reconexión y diagnóstico de cámaras.",
+                        icon: "shield",
+                        theme: "blue",
+                        badge: "Solución de Fallas",
+                        includes: ["Reconexión de cámaras que aparecen Offline", "Reconfiguración tras cambio de clave WiFi", "Revisión de fuente de energía y señal", "Pruebas de estabilidad de video"],
+                        ideal: "Cámaras que dejaron de transmitir al celular después de un corte de luz o cambio de clave."
+                    },
+                    {
+                        key: "kit_cam",
+                        title: "Sistema de varias<br>cámaras",
+                        desc: "Instalación de múltiples puntos en hogar o local.",
+                        icon: "bolt",
+                        theme: "blue",
+                        badge: "Seguridad Integral",
+                        includes: ["Ubicación estratégica de puntos de cámara", "Instalación y configuración de cada cámara", "Centralización en una sola aplicación móvil", "Capacitación de uso y reproducción"],
+                        ideal: "Cubrir entradas, garaje, sala o local comercial completo desde una misma aplicación."
+                    },
+                    {
+                        key: "combo_cam",
+                        title: "Paquete SJA<br>HOME SMART",
+                        desc: "Cámara WiFi + PC/Laptop + Impresora.",
+                        icon: "smart",
+                        theme: "purple",
+                        badge: "Recomendado • SJA HOME SMART ($50)",
+                        includes: ["Configuración o revisión de cámara de seguridad", "Mantenimiento u optimización de computadora", "Configuración de impresora o respaldo de datos", "Pruebas finales de los 3 servicios"],
+                        ideal: "Resolver la configuración de tu cámara junto con tu laptop e impresora en una sola visita."
+                    }
+                ]
+            },
+
+            negocios: {
+                title: "Soporte Negocios",
+                svg: `<svg class="w-16 h-14" viewBox="0 0 64 55" fill="none">
+                        <circle cx="32" cy="27" r="14" stroke="#0A2D63" stroke-width="6" stroke-dasharray="10 4"/>
+                        <circle cx="32" cy="27" r="8" fill="#E0F2FE"/>
+                        <path d="M24 35 L42 17 M36 15 L44 23" stroke="#00A8FF" stroke-width="4" stroke-linecap="round"/>
+                      </svg>`,
+                services: [
+                    {
+                        key: "smart_neg",
+                        title: "SJA HOME SMART<br>(3 en 1 Negocios)",
+                        desc: "Hasta 3 servicios en una sola visita.",
+                        icon: "smart",
+                        theme: "purple",
+                        badge: "Recomendado • SJA HOME SMART ($50)",
+                        includes: ["Mantenimiento y optimización de PC/Laptop", "Configuración de impresora de oficina", "Cámara de seguridad, software o respaldo", "Diagnóstico y pruebas finales"],
+                        ideal: "Oficinas, consultorios y negocios que necesitan resolver 3 requerimientos en un solo día."
+                    },
+                    {
+                        key: "pc_neg",
+                        title: "Mantenimiento de<br>PCs de oficina",
+                        desc: "Equipos rápidos y sin interrupciones.",
+                        icon: "gear",
+                        theme: "blue",
+                        badge: "SJA HOME ($20) / PLUS ($35)",
+                        includes: ["Limpieza interna y externa de equipos", "Optimización de sistema para facturación/trabajo", "Revisión de discos SSD/HDD y memoria RAM", "Reporte técnico por equipo"],
+                        ideal: "Mantener las computadoras de atención al cliente y administración rápidas y estables."
+                    },
+                    {
+                        key: "imp_neg",
+                        title: "Impresoras y<br>escáneres",
+                        desc: "Puesta a punto para facturación y documentos.",
+                        icon: "printer",
+                        theme: "blue",
+                        badge: "Soporte en Sitio",
+                        includes: ["Instalación en las computadoras de la oficina", "Configuración de escáner y bandejas", "Mantenimiento preventivo de impresión", "Pruebas de trabajo continuo"],
+                        ideal: "Negocios que dependen de sus impresoras a diario y no pueden detener su operación."
+                    },
+                    {
+                        key: "respaldo_neg",
+                        title: "Respaldo de<br>información",
+                        desc: "Copia segura de documentos y archivos clave.",
+                        icon: "ssd",
+                        theme: "blue",
+                        badge: "Seguridad de Datos",
+                        includes: ["Copia de carpetas contables, documentos y fotos", "Organización en disco externo o almacenamiento", "Verificación de integridad de archivos", "Recomendaciones de respaldo periódico"],
+                        ideal: "Proteger la información crítica de tu negocio o estudio ante cualquier imprevisto."
+                    },
+                    {
+                        key: "soft_neg",
+                        title: "Instalación de<br>software",
+                        desc: "Programas de oficina, utilitarios y ajustes.",
+                        icon: "bolt",
+                        theme: "blue",
+                        badge: "Configuración Profesional",
+                        includes: ["Instalación y configuración de programas", "Actualizaciones de sistema y seguridad", "Configuración de cuentas de trabajo", "Pruebas de compatibilidad y rendimiento"],
+                        ideal: "Dejar nuevos equipos de trabajo listos con todas las herramientas que utiliza tu negocio."
+                    },
+                    {
+                        key: "cam_neg",
+                        title: "Cámaras WiFi<br>para local",
+                        desc: "Supervisa tu negocio desde el celular.",
+                        icon: "cam",
+                        theme: "blue",
+                        badge: "Seguridad para Negocios",
+                        includes: ["Instalación de cámaras en caja o ingreso", "Vinculación en vivo con el celular del propietario", "Configuración de grabación y alertas", "Pruebas de audio y video HD"],
+                        ideal: "Monitorear tu local comercial, oficina o bodega en tiempo real desde tu teléfono."
+                    }
+                ]
+            }
+        };
+
+        let selectedEquipKey = 'laptop';
+        let selectedSrvKey = 'mantenimiento';
+
+        const includeIcons = [
+            `<svg class="w-5 h-5 text-[#0A2D63]" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>`,
+            `<svg class="w-5 h-5 text-[#0051A8]" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" d="M12 8v4l3 3"/></svg>`,
+            `<svg class="w-5 h-5 text-[#0A2D63]" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-4m3 4v-7m3 7v-2M4 20h16"/></svg>`,
+            `<svg class="w-5 h-5 text-[#0A2D63]" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="14" x2="15" y2="14"/></svg>`
+        ];
+
+        // Renderiza las 6 tarjetas coherentes del Paso 2 según el equipo elegido en el Paso 1
+        function renderServiceOptionsForEquipment(equipKey, preferredSrvKey = null) {
+            const equipObj = equipmentCatalog[equipKey];
+            if (!equipObj) return;
+
+            selectedEquipKey = equipKey;
+
+            // Validar que el servicio seleccionado pertenezca al equipo actual; si no, elegir el primero
+            const validSrv = equipObj.services.find(s => s.key === preferredSrvKey) || equipObj.services[0];
+            selectedSrvKey = validSrv.key;
+
+            // Actualizar etiqueta informativa del Paso 2
+            document.getElementById('step2-category-pill').textContent = `Opciones para: ${equipObj.title}`;
+
+            // Renderizar tarjetas del Paso 2
+            const grid = document.getElementById('diag-service-grid');
+            grid.innerHTML = equipObj.services.map(srv => {
+                const isSelected = srv.key === selectedSrvKey;
+                const iconSvg = cardIcons[srv.icon] || cardIcons.gear;
+                const iconBg = srv.theme === 'purple' ? 'bg-[#F3E8FF] text-[#7E22CE]' : (isSelected ? 'bg-white text-[#0A2D63] shadow-sm' : 'bg-[#E3F3FC] text-[#0A2D63]');
+
+                return `
+                    <button type="button" data-srv="${srv.key}" class="srv-card relative text-left ${isSelected ? 'bg-[#E6F4FE] border-2 border-[#00A8FF] shadow-sm' : 'bg-white hover:bg-[#F8FAFC] border-2 border-slate-200/90'} rounded-2xl p-4 flex items-start gap-3 transition-all">
+                        <span class="srv-radio absolute top-3 right-3 w-5 h-5 rounded-full ${isSelected ? 'bg-[#00A8FF] text-white' : 'border-2 border-slate-300 bg-white text-transparent'} flex items-center justify-center text-[11px] font-black">✓</span>
+                        <div class="w-10 h-10 rounded-full ${iconBg} flex items-center justify-center shrink-0 mt-0.5">
+                            ${iconSvg}
+                        </div>
+                        <div class="pr-4">
+                            <h4 class="text-xs sm:text-[13.5px] font-extrabold text-[#0A2D63] leading-snug">${srv.title}</h4>
+                            <p class="text-[11px] text-slate-600 mt-1 leading-snug">${srv.desc}</p>
+                        </div>
+                    </button>
+                `;
+            }).join('');
+
+            // Añadir listeners a las nuevas tarjetas del Paso 2
+            grid.querySelectorAll('.srv-card').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    selectedSrvKey = btn.dataset.srv;
+                    renderServiceOptionsForEquipment(selectedEquipKey, selectedSrvKey);
+                });
+            });
+
+            updateDiagnosticSummaryPanel();
+        }
+
+        // Actualiza el estado visual del Paso 1 y el panel derecho (ORDEN PRELIMINAR)
+        function updateDiagnosticSummaryPanel() {
+            // Actualizar estado visual de las 5 tarjetas de equipo (Paso 1)
+            document.querySelectorAll('.equip-card').forEach(btn => {
+                const check = btn.querySelector('.equip-check');
+                const isExtraCol = btn.dataset.equip === 'negocios' ? 'col-span-2 sm:col-span-1 ' : '';
+                if (btn.dataset.equip === selectedEquipKey) {
+                    btn.className = `equip-card ${isExtraCol}relative bg-[#E6F4FE] border-2 border-[#00A8FF] rounded-2xl p-3.5 flex flex-col items-center text-center transition-all shadow-sm`;
+                    check.className = 'equip-check absolute top-2 right-2 w-5 h-5 rounded-full bg-[#00A8FF] text-white flex items-center justify-center text-xs font-black';
+                } else {
+                    btn.className = `equip-card ${isExtraCol}relative bg-white hover:bg-[#F8FAFC] border-2 border-slate-200/90 rounded-2xl p-3.5 flex flex-col items-center text-center transition-all`;
+                    check.className = 'equip-check hidden absolute top-2 right-2 w-5 h-5 rounded-full bg-[#00A8FF] text-white items-center justify-center text-xs font-black';
+                }
+            });
+
+            const equipObj = equipmentCatalog[selectedEquipKey];
+            const srvObj = equipObj.services.find(s => s.key === selectedSrvKey) || equipObj.services[0];
+            const cleanSrvTitle = srvObj.title.replace(/<br\s*\/?>/gi, ' ');
+            const sector = document.getElementById('diag-sector').value;
+            const clientType = document.getElementById('diag-client-type').value;
+
+            document.getElementById('summary-device-icon').innerHTML = equipObj.svg;
+            document.getElementById('summary-equip-title').textContent = equipObj.title;
+            document.getElementById('summary-srv-title').textContent = cleanSrvTitle;
+            document.getElementById('summary-badge').innerHTML = `<span class="w-2 h-2 rounded-full bg-[#7E22CE]"></span><span>${srvObj.badge}</span>`;
+
+            const listEl = document.getElementById('summary-includes-list');
+            listEl.innerHTML = srvObj.includes.map((item, idx) => `
+                <li class="flex items-center gap-3">
+                    <span class="w-7 h-7 rounded-lg bg-[#E6F4FE] flex items-center justify-center shrink-0">
+                        ${includeIcons[idx % includeIcons.length]}
+                    </span>
+                    <span>${item}</span>
+                </li>
+            `).join('');
+
+            document.getElementById('summary-ideal-text').textContent = srvObj.ideal;
+            document.getElementById('summary-sector').textContent = sector;
+            document.getElementById('summary-type').textContent = `Servicio a Domicilio (${clientType})`;
+
+            const whatsappMessage = `Hola SJA SOLUTIONS, deseo generar mi orden de visita a domicilio en Quito:\n• Equipo/Categoría: ${equipObj.title}\n• Servicio requerido: ${cleanSrvTitle} (${srvObj.badge})\n• Sector: ${sector}\n• Modalidad: Servicio a Domicilio (${clientType})`;
+            document.getElementById('diag-whatsapp-btn').href = `https://wa.me/593969016202?text=${encodeURIComponent(whatsappMessage)}`;
+        }
+
+        // Permite hacer clic en los íconos de especialidad o tarjetas superiores y saltar al diagnosticador con coherencia
+        function selectCategoryAndScroll(equipKey, srvKey) {
+            if (equipmentCatalog[equipKey]) {
+                renderServiceOptionsForEquipment(equipKey, srvKey);
+            }
+            const section = document.getElementById('diagnostico');
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Giro 3D de la tarjeta de presentación oficial
+        function flipBusinessCard() {
+            const card = document.getElementById('business-card-3d');
+            card.classList.toggle('flip-card-flipped');
+        }
+
+        // Copiar teléfono 0969016202 al portapapeles
+        function copyPhoneNumber() {
+            const tempInput = document.createElement('textarea');
+            tempInput.value = '0969016202';
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            const feedback = document.getElementById('copy-feedback');
+            feedback.classList.remove('hidden');
+            setTimeout(() => feedback.classList.add('hidden'), 3500);
+        }
+
+        // Envío del formulario de contacto hacia WhatsApp 0969016202
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('client-name').value.trim();
+            const phone = document.getElementById('client-phone').value.trim();
+            const service = document.getElementById('client-service').value;
+            const zone = document.getElementById('client-zone').value.trim();
+            const notes = document.getElementById('client-notes').value.trim();
+
+            const msg = `Hola SJA SOLUTIONS, mi nombre es ${name} (${phone}). Deseo agendar una visita a domicilio en Quito, sector ${zone}, para: ${service}. ${notes ? 'Detalle adicional: ' + notes : ''}`;
+            const url = `https://wa.me/593969016202?text=${encodeURIComponent(msg)}`;
+            window.open(url, '_blank', 'noopener,noreferrer');
+        }
+
+        // Inicialización de eventos al cargar la página
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.equip-card').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    renderServiceOptionsForEquipment(btn.dataset.equip);
+                });
+            });
+
+            document.getElementById('diag-sector').addEventListener('change', updateDiagnosticSummaryPanel);
+            document.getElementById('diag-client-type').addEventListener('change', updateDiagnosticSummaryPanel);
+
+            // Render inicial con Computadora o Laptop
+            renderServiceOptionsForEquipment('laptop', 'mantenimiento');
+
+            // Menú móvil
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const openIcon = document.getElementById('menu-icon-open');
+            const closeIcon = document.getElementById('menu-icon-close');
+
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                openIcon.classList.toggle('hidden');
+                closeIcon.classList.toggle('hidden');
+            });
+
+            document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    openIcon.classList.remove('hidden');
+                    closeIcon.classList.add('hidden');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
